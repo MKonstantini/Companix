@@ -6,7 +6,6 @@ import './App.css';
 
 import BusinessCards from './components/BusinessCards/BusinessCards';
 import MyCompany from './components/MyCompany/MyCompany';
-import Register from './components/Login/Register';
 import NoPage from './components/Misc/NoPage';
 import Navbar from './components/Misc/Navbar';
 import Login from './components/Login/Login';
@@ -22,7 +21,6 @@ function App() {
         <Navbar isLoggedIn={isLoggedIn} />
         <Routes>
           <Route path='/' element={<Login />} />
-          <Route path='/register' element={<Register />} />
 
           <Route path='/home' element={<Home />} />
           <Route path='/mycompany' element={<MyCompany />} />
