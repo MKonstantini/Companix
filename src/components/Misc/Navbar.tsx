@@ -24,7 +24,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({ isLoggedIn }) => {
                     <div className="container-fluid">
 
                         {/* Brand */}
-                        <Link className="navbar-brand" to="/">COMPANIX</Link>
+                        <Link className="navbar-brand fontGambetta" to="/">COMPANIX</Link>
 
                         {/* Collapse Btn */}
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "accountType": "admin",
+      "firstName": "Matan",
+      "lastName": "Konstantini",
+      "phone": "555-530-590",
+      "email": "matanko35@gmail.com",
+      "password": "password1",
+      "imageUrl": "https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png",
+      "country": "Israel",
+      "state": "",
+      "city": "Shoham",
+      "street": "HaEtrog 48",
+      "houseNumber": "",
+      "zip": "6085000"
+    }
+  ]
+}

@@ -16,6 +16,7 @@ interface HomeProps {
 const Home: FunctionComponent<HomeProps> = () => {
     return (
         <>
+            <h1>this is home</h1>
         </>
     );
 }

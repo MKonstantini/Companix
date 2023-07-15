@@ -13,7 +13,15 @@ body {
   /* available weights: 400.300.600.401.301.601.700 */
 }
 
-/* Components */
+/* Variables */
+:root {
+  --mainColor: #413028bb;
+}
+.bgcMain {
+  background-color: var(--mainColor);
+}
+
+/* Tags */
 button {
 	background: none;
 	border: none;
@@ -26,17 +34,9 @@ hr {
   margin: 0.5rem;
 }
 
-/* Variables */
-:root {
-  --mainColor: #4f549bbb;
-}
-.bgcMain {
-  background-color: var(--mainColor);
-}
-
 /* Login Section */
 .loginCover {
-  background-image: linear-gradient(145deg, #4f549bbb 0%, transparent, #333333a1), url(../public/IMG-BusinessMeeting.jpg);
+  background-image: linear-gradient(145deg, #413028bb 0%, transparent, #333333a1), url(../public/IMG-BusinessMeeting.jpg);
   background-size: cover;
   background-position: center;
   border-radius: 0 7rem 7rem 0;

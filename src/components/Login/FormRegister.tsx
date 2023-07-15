@@ -1,6 +1,8 @@
 import { FunctionComponent } from "react";
 import { Field, FormikProvider, useFormik } from "formik";
 import * as yup from "yup"
+import User from "../../interfaces/User";
+import { addUser } from "../../services/dbFunctions";
 
 interface FormRegisterProps {
 
@@ -25,9 +27,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
         },
         validationSchema: yup.object({
             accountType: yup.string().required(),
-            firstName: yup.string().required(),
-            lastName: yup.string().required(),
-            phone: yup.string().required(),
+            firstName: yup.string().required().min(2),
+            lastName: yup.string().required().min(2),
+            phone: yup.string().required().min(10),
             email: yup.string().required().email(),
             password: yup.string().required().min(5),
             imageUrl: yup.string(),
@@ -39,7 +41,24 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
             zip: yup.string(),
         }),
         onSubmit: (values, { resetForm }) => {
-            console.log(values)
+            const newUser: User = {
+                id: (Math.floor(Math.random() * 999 - 100) + 100).toString(),
+                accountType: values.accountType,
+                firstName: values.firstName,
+                lastName: values.lastName,
+                phone: values.phone,
+                email: values.email,
+                password: values.password,
+                imageUrl: values.imageUrl,
+                country: values.country,
+                state: values.state,
+                city: values.city,
+                street: values.street,
+                houseNumber: values.houseNumber.toString(),
+                zip: values.zip.toString()
+            };
+
+            addUser(newUser)
             resetForm()
         }
     })

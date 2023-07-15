@@ -1,12 +1,17 @@
 import { FunctionComponent } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup"
+import { getUser, } from "../../services/dbFunctions";
+import { alertSuccess } from "../../services/alertFunctions";
+import { useNavigate } from "react-router-dom";
 
 interface FormLoginProps {
 
 }
 
 const FormLogin: FunctionComponent<FormLoginProps> = () => {
+    const navigate = useNavigate()
+
     let formik = useFormik({
         initialValues: { email: "", password: "" },
         validationSchema: yup.object({
@@ -16,6 +21,14 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
         onSubmit: (values, { resetForm }) => {
             console.log(values)
             resetForm()
+            getUser(values.email, values.password)
+                .then((res: any) => res.data)
+                .then((data) => {
+                    if (data.length > 0) {
+                        alertSuccess(`Welcome ${values.email}!`)
+                        navigate('/home')
+                    }
+                })
         }
     })
     return (
