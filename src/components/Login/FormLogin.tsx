@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup"
 import { getUser, } from "../../services/dbFunctions";
-import { alertSuccess } from "../../services/alertFunctions";
+import { alertError, alertSuccess } from "../../services/alertFunctions";
 import { useNavigate } from "react-router-dom";
 
 interface FormLoginProps {
@@ -28,6 +28,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                         alertSuccess(`Welcome ${values.email}!`)
                         navigate('/home')
                     }
+                    else alertError("Wrong email or password!")
                 })
         }
     })
