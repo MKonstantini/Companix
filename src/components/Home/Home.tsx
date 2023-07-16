@@ -16,7 +16,9 @@ interface HomeProps {
 const Home: FunctionComponent<HomeProps> = () => {
     return (
         <>
-            <h1>this is home</h1>
+            <div className="container vh-100 mt-5 bg-body rounded-4">
+                <h1 className="text-center pt-5 display-4">Home</h1>
+            </div>
         </>
     );
 }

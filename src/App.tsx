@@ -23,7 +23,7 @@ function App() {
       <LoginContext.Provider value={[isLoggedIn, setIsLoggedIn]}>
         <BrowserRouter>
           <ToastContainer />
-          <Navbar isLoggedIn={isLoggedIn} />
+          <Navbar />
           <Routes>
             <Route path='/' element={<Login />} />
 

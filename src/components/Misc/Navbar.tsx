@@ -1,30 +1,35 @@
 // Navbar Layout:
-
 // Toggle Light/Dark Mode
 // Search Bar
-
 // if no-user: Home | About | Sign-Up | Login >
 // if account: Home | About | *Favorites*
 // if business account: Home | About | Favorites | *My Cards*
 // if admin account: Home | About | Favorites | My Cards | *CRM*
 
-import { FunctionComponent } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { FunctionComponent, useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { LoginContext } from "../../App";
 
 interface NavbarProps {
-    isLoggedIn: boolean;
+
 }
 
-const Navbar: FunctionComponent<NavbarProps> = ({ isLoggedIn }) => {
+const Navbar: FunctionComponent<NavbarProps> = () => {
+    const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
+    const navigate = useNavigate()
+    console.log(isLoggedIn)
+
+    sessionStorage.getItem("isLoggedIn") && setIsLoggedIn(true)
+
     return (
         <>
             {
                 isLoggedIn &&
-                <nav className="navbar py-3 navbar-expand-md bg-body-tertiary">
+                <div><nav className="navbar py-3 navbar-expand-md bg-body-tertiary">
                     <div className="container-fluid">
 
                         {/* Brand */}
-                        <Link className="navbar-brand fontGambetta" to="/">COMPANIX</Link>
+                        <Link className="navbar-brand fontGambetta" to="/home">COMPANIX</Link>
 
                         {/* Collapse Btn */}
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,19 +40,19 @@ const Navbar: FunctionComponent<NavbarProps> = ({ isLoggedIn }) => {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             {/* Middle Btns */}
                             <ul className="navbar-nav m-auto mb-2 mb-lg-0">
-                                <li className="nav-item">
-                                    <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
+                                <li className="nav-item navHover">
+                                    <NavLink className="nav-link active" aria-current="page" to="/home">Home</NavLink>
                                 </li>
 
                                 <li className="nav-item">_____</li>
 
-                                <li className="nav-item">
+                                <li className="nav-item navHover">
                                     <NavLink className="nav-link" to="/mycompany">My Company</NavLink>
                                 </li>
 
                                 <li className="nav-item">_____</li>
 
-                                <li className="nav-item">
+                                <li className="nav-item navHover">
                                     <NavLink className="nav-link" to="/businesscards">Business Cards</NavLink>
                                 </li>
                             </ul>
@@ -55,11 +60,16 @@ const Navbar: FunctionComponent<NavbarProps> = ({ isLoggedIn }) => {
                             {/* Rightside Btns */}
                             <div>
                                 <button className="btn btn-outline-secondary me-2">Mode</button>
-                                <button className="btn btn-outline-secondary">Logout</button>
+                                <button className="btn btn-outline-secondary" onClick={() => { navigate("/"); setIsLoggedIn("false") }}>Logout</button>
                             </div>
                         </div>
                     </div>
                 </nav>
+                    <div className="navColorDiv"></div>
+                    <div className="navColorDiv" style={{ opacity: 0.70 }}></div>
+                    <div className="navColorDiv" style={{ opacity: 0.30 }}></div>
+                </div>
+
 
             }
         </>

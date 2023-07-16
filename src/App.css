@@ -15,9 +15,9 @@ body {
 
 /* Variables */
 :root {
-  --mainColor: #413028bb;
+  --mainColor: #614233bb;
 }
-.bgcMain {
+.bgcMyColor {
   background-color: var(--mainColor);
 }
 
@@ -45,3 +45,16 @@ hr {
   border: 0.1rem solid grey;
   border-radius: 1rem;
 }
+
+/* Home Section */
+.navColorDiv {
+  height: 0.15rem;
+  width: 100vw;
+  background: linear-gradient(90deg,grey, rgb(78, 53, 53), grey)
+}
+
+.navHover:hover  {
+  background-color: #fff;
+  border-radius: 5rem;
+}
+

@@ -11,7 +11,7 @@ const Login: FunctionComponent<LoginProps> = () => {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
 
     //Reset Login Session
-    sessionStorage.removeItem("isLoggedIn")
+    sessionStorage.clear()
     setIsLoggedIn(false)
 
     // State for selected Loggin/Register
