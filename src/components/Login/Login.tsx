@@ -1,12 +1,19 @@
-import { FunctionComponent, useEffect, useRef, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useRef, useState } from "react";
 import FormLogin from "./FormLogin";
 import FormRegister from "./FormRegister";
+import { LoginContext } from "../../App";
 
 interface LoginProps {
 
 }
 
 const Login: FunctionComponent<LoginProps> = () => {
+    const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
+
+    //Reset Login Session
+    sessionStorage.removeItem("isLoggedIn")
+    setIsLoggedIn(false)
+
     // State for selected Loggin/Register
     const [selectedMenu, setSelectedMenu] = useState<string>("loggin")
 

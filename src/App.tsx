@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import './App.css';
@@ -13,25 +13,29 @@ import Home from './components/Home/Home';
 import { ToastContainer } from 'react-toastify';
 
 
+export const LoginContext = createContext<any>(false)
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <ToastContainer />
-        <Navbar isLoggedIn={isLoggedIn} />
-        <Routes>
-          <Route path='/' element={<Login />} />
+      <LoginContext.Provider value={[isLoggedIn, setIsLoggedIn]}>
+        <BrowserRouter>
+          <ToastContainer />
+          <Navbar isLoggedIn={isLoggedIn} />
+          <Routes>
+            <Route path='/' element={<Login />} />
 
-          <Route path='/home' element={<Home />} />
-          <Route path='/mycompany' element={<MyCompany />} />
-          <Route path='/businesscards' element={<BusinessCards />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/mycompany' element={<MyCompany />} />
+            <Route path='/businesscards' element={<BusinessCards />} />
 
-          <Route path='*' element={<NoPage />} />
-        </Routes>
+            <Route path='*' element={<NoPage />} />
+          </Routes>
 
-      </BrowserRouter>
+        </BrowserRouter>
+      </LoginContext.Provider>
     </div>
   );
 }

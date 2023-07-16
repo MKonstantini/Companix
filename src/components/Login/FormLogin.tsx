@@ -1,15 +1,18 @@
-import { FunctionComponent } from "react";
+import { alertError, alertSuccess } from "../../services/alertFunctions";
+import { getUser, } from "../../services/dbFunctions";
+import { FunctionComponent, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup"
-import { getUser, } from "../../services/dbFunctions";
-import { alertError, alertSuccess } from "../../services/alertFunctions";
-import { useNavigate } from "react-router-dom";
+
+import { LoginContext } from "../../App";
 
 interface FormLoginProps {
 
 }
 
 const FormLogin: FunctionComponent<FormLoginProps> = () => {
+    const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
     const navigate = useNavigate()
 
     let formik = useFormik({
@@ -26,6 +29,9 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                 .then((data) => {
                     if (data.length > 0) {
                         alertSuccess(`Welcome ${values.email}!`)
+                        setIsLoggedIn(true)
+                        sessionStorage.setItem("isLoggedIn", "true")
+                        sessionStorage.setItem("userInfo", JSON.stringify(data))
                         navigate('/home')
                     }
                     else alertError("Wrong email or password!")

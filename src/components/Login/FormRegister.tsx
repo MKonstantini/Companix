@@ -1,14 +1,21 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { Field, FormikProvider, useFormik } from "formik";
 import * as yup from "yup"
 import User from "../../interfaces/User";
 import { addUser } from "../../services/dbFunctions";
+import { alertSuccess } from "../../services/alertFunctions";
+import { useNavigate } from "react-router-dom";
+
+import { LoginContext } from "../../App";
 
 interface FormRegisterProps {
 
 }
 
 const FormRegister: FunctionComponent<FormRegisterProps> = () => {
+    const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
+    const navigate = useNavigate()
+
     let formik = useFormik({
         initialValues: {
             accountType: "",
@@ -42,7 +49,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
         }),
         onSubmit: (values, { resetForm }) => {
             const newUser: User = {
-                id: (Math.floor(Math.random() * 999 - 100) + 100).toString(),
+                id: String((Math.floor(Math.random() * 999 - 100) + 100)),
                 accountType: values.accountType,
                 firstName: values.firstName,
                 lastName: values.lastName,
@@ -54,12 +61,18 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                 state: values.state,
                 city: values.city,
                 street: values.street,
-                houseNumber: values.houseNumber.toString(),
-                zip: values.zip.toString()
+                houseNumber: String(values.houseNumber),
+                zip: String(values.zip)
             };
 
             addUser(newUser)
+            alertSuccess(`New user created. Welcome ${values.email}!`)
             resetForm()
+
+            setIsLoggedIn(true)
+            sessionStorage.setItem("isLoggedIn", "true")
+            sessionStorage.setItem("userInfo", JSON.stringify(newUser))
+            navigate("/home")
         }
     })
 
