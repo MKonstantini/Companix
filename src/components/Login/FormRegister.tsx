@@ -246,7 +246,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                             <Field
                                 type="radio"
                                 name="accountType"
-                                value="regular"
+                                value="Regular"
                                 className="me-2"
                             />
                             Regular
@@ -255,7 +255,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                             <Field
                                 type="radio"
                                 name="accountType"
-                                value="business"
+                                value="Business"
                                 className=" ms-3 me-2"
                             />
                             Business
@@ -264,7 +264,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                             <Field
                                 type="radio"
                                 name="accountType"
-                                value="admin"
+                                value="Admin"
                                 className=" ms-3 me-2"
                             />
                             Admin

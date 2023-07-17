@@ -9,6 +9,7 @@
 
 import { FunctionComponent, useContext } from "react";
 import { UserContext } from "../../App";
+import Card from "../Card/Card";
 
 interface HomeProps {
 
@@ -28,9 +29,9 @@ const Home: FunctionComponent<HomeProps> = () => {
                 </div>
                 {/* Card */}
                 <div className="mt-5">
-                    <p className="m-0">-Your Card-</p>
+                    <p className="mb-2">-Your Card-</p>
                     <div>
-
+                        <Card userInfo={userInfo} />
                     </div>
                 </div>
             </div>

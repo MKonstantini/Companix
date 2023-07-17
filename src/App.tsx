@@ -19,7 +19,7 @@ export const UserContext = createContext<any>({})
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
-  const [userInfo, setUserInfo] = useState<User | {}>({})
+  const [userInfo, setUserInfo] = useState<any>(JSON.parse(sessionStorage.getItem("userInfo") as string))
 
   return (
     <div className="App">
