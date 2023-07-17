@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": 101,
       "accountType": "admin",
       "firstName": "Matan",
       "lastName": "Konstantini",
@@ -15,6 +15,38 @@
       "street": "HaEtrog 48",
       "houseNumber": "",
       "zip": "6085000"
+    },
+    {
+      "id": 102,
+      "accountType": "business",
+      "firstName": "Robert",
+      "lastName": "Davis",
+      "phone": "555-996-123",
+      "email": "robertd@gmail.com",
+      "password": "password1",
+      "imageUrl": "https://images.pexels.com/photos/6274712/pexels-photo-6274712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "country": "USA",
+      "state": "California",
+      "city": "Los Angeles",
+      "street": "Sunset Boulevard",
+      "houseNumber": "12",
+      "zip": "6085091"
+    },
+    {
+      "id": 103,
+      "accountType": "regular",
+      "firstName": "Lucy",
+      "lastName": "Anderson",
+      "phone": "555-906-070",
+      "email": "lucya@gmail.com",
+      "password": "password1",
+      "imageUrl": "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "country": "USA",
+      "state": "California",
+      "city": "San Jose",
+      "street": "Ailey Ave.",
+      "houseNumber": "18",
+      "zip": "6085091"
     }
   ]
 }

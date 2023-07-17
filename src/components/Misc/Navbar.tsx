@@ -47,13 +47,13 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                                 <li className="nav-item">_____</li>
 
                                 <li className="nav-item navHover">
-                                    <NavLink className="nav-link" to="/mycompany">My Company</NavLink>
+                                    <NavLink className="nav-link" to="/businesscards">Business Cards</NavLink>
                                 </li>
 
                                 <li className="nav-item">_____</li>
 
                                 <li className="nav-item navHover">
-                                    <NavLink className="nav-link" to="/businesscards">Business Cards</NavLink>
+                                    <NavLink className="nav-link" to="/mycompany">My Company</NavLink>
                                 </li>
                             </ul>
 

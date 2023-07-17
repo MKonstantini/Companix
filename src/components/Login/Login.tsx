@@ -43,7 +43,7 @@ const Login: FunctionComponent<LoginProps> = () => {
 
     return (
         <>
-            <div className="row m-0 vh-100 ">
+            <div className="row m-0 vh-100 loginBgc">
                 {/* Cover Img */}
                 <div className="d-none d-sm-block col-sm-4 col-md-6 loginCover"></div>
 

@@ -239,23 +239,32 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                 <div className="mt-3 ms-4 mb-0">
                     <div id="accountType">Account Type</div>
                     <div className="d-flex" role="group" aria-labelledby="accountType">
-                        <label>
+                        <label className="me-3 m-sm-0">
                             <Field
                                 type="radio"
                                 name="accountType"
-                                value="Regular"
+                                value="regular"
                                 className="me-2"
                             />
                             Regular
+                        </label>
+                        <label className="me-1 m-sm-0">
+                            <Field
+                                type="radio"
+                                name="accountType"
+                                value="business"
+                                className=" ms-3 me-2"
+                            />
+                            Business
                         </label>
                         <label>
                             <Field
                                 type="radio"
                                 name="accountType"
-                                value="Business"
+                                value="admin"
                                 className=" ms-3 me-2"
                             />
-                            Business
+                            Admin
                         </label>
                     </div>
                 </div>

@@ -22,7 +22,6 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
             password: yup.string().required().min(5)
         }),
         onSubmit: (values, { resetForm }) => {
-            console.log(values)
             resetForm()
             getUser(values.email, values.password)
                 .then((res: any) => res.data)
@@ -36,6 +35,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                     }
                     else alertError("Wrong email or password!")
                 })
+                .catch((err) => console.log(err))
         }
     })
     return (
@@ -89,6 +89,58 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
 
                 {/* Submit */}
                 <button type="submit" disabled={!formik.isValid || !formik.dirty} className="btn btn-outline-secondary mt-2 mb-3" style={{ width: "8rem" }}>Login</button>
+
+                {/* Demo users */}
+                <p className="mt-2 mb-0 text-center">Demo Accounts:</p>
+                <div className="mb-3 text-center">
+                    <button className="btn" onClick={() => {
+                        getUser("lucya@gmail.com", "password1")
+                            .then((res: any) => res.data)
+                            .then((data) => {
+                                if (data.length > 0) {
+                                    alertSuccess(`Welcome lucya@gmail.com!`)
+                                    setIsLoggedIn(true)
+                                    sessionStorage.setItem("isLoggedIn", "true")
+                                    sessionStorage.setItem("userInfo", JSON.stringify(data))
+                                    navigate('/home')
+                                }
+                                else alertError("Wrong email or password!")
+                            })
+                            .catch((err) => console.log(err))
+                    }}><small>Regular</small></button>
+
+                    <button className="btn" onClick={() => {
+                        getUser("robertd@gmail.com", "password1")
+                            .then((res: any) => res.data)
+                            .then((data) => {
+                                if (data.length > 0) {
+                                    alertSuccess(`Welcome robertd@gmail.com!`)
+                                    setIsLoggedIn(true)
+                                    sessionStorage.setItem("isLoggedIn", "true")
+                                    sessionStorage.setItem("userInfo", JSON.stringify(data))
+                                    navigate('/home')
+                                }
+                                else alertError("Wrong email or password!")
+                            })
+                            .catch((err) => console.log(err))
+                    }}><small>Business</small></button>
+
+                    <button className="btn" onClick={() => {
+                        getUser("matanko35@gmail.com", "password1")
+                            .then((res: any) => res.data)
+                            .then((data) => {
+                                if (data.length > 0) {
+                                    alertSuccess(`Welcome matanko35@gmail.com!`)
+                                    setIsLoggedIn(true)
+                                    sessionStorage.setItem("isLoggedIn", "true")
+                                    sessionStorage.setItem("userInfo", JSON.stringify(data))
+                                    navigate('/home')
+                                }
+                                else alertError("Wrong email or password!")
+                            })
+                            .catch((err) => console.log(err))
+                    }}><small>Admin</small></button>
+                </div>
             </form>
         </>
     );
