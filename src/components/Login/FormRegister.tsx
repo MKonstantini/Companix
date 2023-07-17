@@ -6,7 +6,7 @@ import { addUser } from "../../services/dbFunctions";
 import { alertSuccess } from "../../services/alertFunctions";
 import { useNavigate } from "react-router-dom";
 
-import { LoginContext } from "../../App";
+import { LoginContext, UserContext } from "../../App";
 
 interface FormRegisterProps {
 
@@ -14,6 +14,7 @@ interface FormRegisterProps {
 
 const FormRegister: FunctionComponent<FormRegisterProps> = () => {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
+    const [userInfo, setUserInfo] = useContext(UserContext)
     const navigate = useNavigate()
 
     let formik = useFormik({
@@ -65,13 +66,15 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                 zip: String(values.zip)
             };
 
-            addUser(newUser)
             alertSuccess(`New user created. Welcome ${values.email}!`)
+            addUser(newUser)
             resetForm()
 
             setIsLoggedIn(true)
+            setUserInfo(newUser)
             sessionStorage.setItem("isLoggedIn", "true")
             sessionStorage.setItem("userInfo", JSON.stringify(newUser))
+
             navigate("/home")
         }
     })

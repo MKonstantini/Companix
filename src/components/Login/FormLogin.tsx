@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup"
 
-import { LoginContext } from "../../App";
+import { LoginContext, UserContext } from "../../App";
 
 interface FormLoginProps {
 
@@ -13,6 +13,8 @@ interface FormLoginProps {
 
 const FormLogin: FunctionComponent<FormLoginProps> = () => {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
+    const [userInfo, setUserInfo] = useContext(UserContext)
+
     const navigate = useNavigate()
 
     let formik = useFormik({
@@ -28,10 +30,12 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                 .then((data) => {
                     if (data.length > 0) {
                         alertSuccess(`Welcome ${values.email}!`)
-                        setIsLoggedIn(true)
-                        sessionStorage.setItem("isLoggedIn", "true")
-                        sessionStorage.setItem("userInfo", JSON.stringify(data))
                         navigate('/home')
+
+                        setIsLoggedIn(true)
+                        setUserInfo(data[0])
+                        sessionStorage.setItem("isLoggedIn", "true")
+                        sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
                     }
                     else alertError("Wrong email or password!")
                 })
@@ -99,10 +103,12 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                             .then((data) => {
                                 if (data.length > 0) {
                                     alertSuccess(`Welcome lucya@gmail.com!`)
-                                    setIsLoggedIn(true)
-                                    sessionStorage.setItem("isLoggedIn", "true")
-                                    sessionStorage.setItem("userInfo", JSON.stringify(data))
                                     navigate('/home')
+
+                                    sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
+                                    sessionStorage.setItem("isLoggedIn", "true")
+                                    setUserInfo(data[0])
+                                    setIsLoggedIn(true)
                                 }
                                 else alertError("Wrong email or password!")
                             })
@@ -115,10 +121,12 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                             .then((data) => {
                                 if (data.length > 0) {
                                     alertSuccess(`Welcome robertd@gmail.com!`)
-                                    setIsLoggedIn(true)
-                                    sessionStorage.setItem("isLoggedIn", "true")
-                                    sessionStorage.setItem("userInfo", JSON.stringify(data))
                                     navigate('/home')
+
+                                    sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
+                                    sessionStorage.setItem("isLoggedIn", "true")
+                                    setUserInfo(data[0])
+                                    setIsLoggedIn(true)
                                 }
                                 else alertError("Wrong email or password!")
                             })
@@ -131,10 +139,12 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                             .then((data) => {
                                 if (data.length > 0) {
                                     alertSuccess(`Welcome matanko35@gmail.com!`)
-                                    setIsLoggedIn(true)
-                                    sessionStorage.setItem("isLoggedIn", "true")
-                                    sessionStorage.setItem("userInfo", JSON.stringify(data))
                                     navigate('/home')
+
+                                    sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
+                                    sessionStorage.setItem("isLoggedIn", "true")
+                                    setUserInfo(data[0])
+                                    setIsLoggedIn(true)
                                 }
                                 else alertError("Wrong email or password!")
                             })

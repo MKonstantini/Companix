@@ -17,7 +17,6 @@ interface NavbarProps {
 const Navbar: FunctionComponent<NavbarProps> = () => {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
     const navigate = useNavigate()
-    console.log(isLoggedIn)
 
     sessionStorage.getItem("isLoggedIn") && setIsLoggedIn(true)
 
@@ -60,7 +59,11 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                             {/* Rightside Btns */}
                             <div>
                                 <button className="btn btn-outline-secondary me-2">Mode</button>
-                                <button className="btn btn-outline-secondary" onClick={() => { navigate("/"); setIsLoggedIn("false") }}>Logout</button>
+                                <button className="btn btn-outline-secondary" onClick={() => {
+                                    navigate("/")
+                                    setIsLoggedIn("false")
+                                }}
+                                >Logout</button>
                             </div>
                         </div>
                     </div>
