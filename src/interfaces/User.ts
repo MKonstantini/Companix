@@ -13,4 +13,8 @@ export default interface User {
     street ?: string,
     houseNumber ?: string,
     zip ?: string
+    occupation: string,
+    company: string,
+    education?: string,
+    languages?: string,
 }

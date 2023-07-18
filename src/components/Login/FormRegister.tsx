@@ -31,12 +31,16 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
             city: "",
             street: "",
             houseNumber: "",
-            zip: ""
+            zip: "",
+            occupation: "",
+            company: "",
+            education: "",
+            languages: ""
         },
         validationSchema: yup.object({
-            accountType: yup.string().required(),
-            firstName: yup.string().required().min(2),
-            lastName: yup.string().required().min(2),
+            accountType: yup.string().required("account type is a required field"),
+            firstName: yup.string().required("first name is a required field").min(2, "first name must be at least 2 characters"),
+            lastName: yup.string().required("last name is a required field").min(2, "last name must be at least 2 characters"),
             phone: yup.string().required().min(10),
             email: yup.string().required().email(),
             password: yup.string().required().min(5),
@@ -47,6 +51,11 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
             street: yup.string(),
             houseNumber: yup.string(),
             zip: yup.string(),
+            occupation: yup.string().required(),
+            company: yup.string().required(),
+            education: yup.string(),
+            languages: yup.string()
+
         }),
         onSubmit: (values, { resetForm }) => {
             const newUser: User = {
@@ -63,7 +72,11 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                 city: values.city,
                 street: values.street,
                 houseNumber: String(values.houseNumber),
-                zip: String(values.zip)
+                zip: String(values.zip),
+                occupation: values.occupation,
+                company: values.company,
+                education: values.education,
+                languages: values.languages
             };
 
             alertSuccess(`New user created. Welcome ${values.email}!`)
@@ -94,6 +107,10 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         value={formik.values.firstName}
                         onBlur={formik.handleBlur}
                     />
+                    {formik.touched.firstName && formik.errors.firstName &&
+                        <small className="m-0 ms-2">{formik.errors.firstName}</small>
+                    }
+
                 </div>
                 {/* Last Name */}
                 <div className="d-flex flex-column col-6 mt-2">
@@ -107,6 +124,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         value={formik.values.lastName}
                         onBlur={formik.handleBlur}
                     />
+                    {formik.touched.lastName && formik.errors.lastName &&
+                        <small className="m-0 ms-2">{formik.errors.lastName}</small>
+                    }
                 </div>
                 {/* Phone */}
                 <div className="d-flex flex-column col-6 mt-2">
@@ -120,6 +140,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         value={formik.values.phone}
                         onBlur={formik.handleBlur}
                     />
+                    {formik.touched.phone && formik.errors.phone &&
+                        <small className="m-0 ms-2">{formik.errors.phone}</small>
+                    }
                 </div>
                 {/* Email */}
                 <div className="d-flex flex-column col-6 mt-2">
@@ -133,6 +156,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         value={formik.values.email}
                         onBlur={formik.handleBlur}
                     />
+                    {formik.touched.email && formik.errors.email &&
+                        <small className="m-0 ms-2">{formik.errors.email}</small>
+                    }
                 </div>
                 {/* Password */}
                 <div className="d-flex flex-column col-6 mt-2">
@@ -146,6 +172,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         value={formik.values.password}
                         onBlur={formik.handleBlur}
                     />
+                    {formik.touched.password && formik.errors.password &&
+                        <small className="m-0 ms-2">{formik.errors.password}</small>
+                    }
                 </div>
                 {/* imageUrl */}
                 <div className="d-flex flex-column col-6 mt-2">
@@ -172,6 +201,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         value={formik.values.country}
                         onBlur={formik.handleBlur}
                     />
+                    {formik.touched.country && formik.errors.country &&
+                        <small className="m-0 ms-2">{formik.errors.country}</small>
+                    }
                 </div>
                 {/* State */}
                 <div className="d-flex flex-column col-6 mt-2">
@@ -198,6 +230,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         value={formik.values.city}
                         onBlur={formik.handleBlur}
                     />
+                    {formik.touched.city && formik.errors.city &&
+                        <small className="m-0 ms-2">{formik.errors.city}</small>
+                    }
                 </div>
                 {/* Street */}
                 <div className="d-flex flex-column col-6 mt-2">
@@ -235,6 +270,64 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         name="zip"
                         onChange={formik.handleChange}
                         value={formik.values.zip}
+                        onBlur={formik.handleBlur}
+                    />
+                </div>
+                {/* Occupation */}
+                <div className="d-flex flex-column col-6 mt-2">
+                    <label htmlFor="occupation" className="ms-2">Occupation *</label>
+                    <input
+                        className="form-control"
+                        id="occupation"
+                        type="text"
+                        name="occupation"
+                        onChange={formik.handleChange}
+                        value={formik.values.occupation}
+                        onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.occupation && formik.errors.occupation &&
+                        <small className="m-0 ms-2">{formik.errors.occupation}</small>
+                    }
+                </div>
+                {/* Company */}
+                <div className="d-flex flex-column col-6 mt-2">
+                    <label htmlFor="company" className="ms-2">Company *</label>
+                    <input
+                        className="form-control"
+                        id="company"
+                        type="text"
+                        name="company"
+                        onChange={formik.handleChange}
+                        value={formik.values.company}
+                        onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.company && formik.errors.company &&
+                        <small className="m-0 ms-2">{formik.errors.company}</small>
+                    }
+                </div>
+                {/* Education */}
+                <div className="d-flex flex-column col-6 mt-2">
+                    <label htmlFor="education" className="ms-2">Education</label>
+                    <input
+                        className="form-control"
+                        id="education"
+                        type="text"
+                        name="education"
+                        onChange={formik.handleChange}
+                        value={formik.values.education}
+                        onBlur={formik.handleBlur}
+                    />
+                </div>
+                {/* Languages */}
+                <div className="d-flex flex-column col-6 mt-2">
+                    <label htmlFor="languages" className="ms-2">Languages</label>
+                    <input
+                        className="form-control"
+                        id="languages"
+                        type="text"
+                        name="languages"
+                        onChange={formik.handleChange}
+                        value={formik.values.languages}
                         onBlur={formik.handleBlur}
                     />
                 </div>

@@ -14,7 +14,6 @@ const Login: FunctionComponent<LoginProps> = () => {
     //Reset Login Session
     sessionStorage.clear()
     setIsLoggedIn(false)
-    console.log(userInfo)
 
     // State for selected Loggin/Register
     const [selectedMenu, setSelectedMenu] = useState<string>("loggin")
