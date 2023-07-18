@@ -116,11 +116,11 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                     }}><small>Regular</small></button>
 
                     <button className="btn" onClick={() => {
-                        getUser("robertd@gmail.com", "password1")
+                        getUser("gabrielj@gmail.com", "password1")
                             .then((res: any) => res.data)
                             .then((data) => {
                                 if (data.length > 0) {
-                                    alertSuccess(`Welcome robertd@gmail.com!`)
+                                    alertSuccess(`Welcome gabrielj@gmail.com!`)
                                     navigate('/home')
 
                                     sessionStorage.setItem("userInfo", JSON.stringify(data[0]))

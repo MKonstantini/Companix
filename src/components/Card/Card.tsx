@@ -1,5 +1,4 @@
-import { FunctionComponent, useContext } from "react";
-import { UserContext } from "../../App";
+import { FunctionComponent } from "react";
 import User from "../../interfaces/User";
 
 interface CardProps {
@@ -25,7 +24,13 @@ const Card: FunctionComponent<CardProps> = ({ userInfo }) => {
                                 <p>Situated : {userInfo.country}</p>
                             )
                         }
-                        <p>Work: {userInfo.occupation} at {userInfo.company}</p>
+                        {
+                            (userInfo.company as string).length > 0 ? (
+                                <p>Occupation: {userInfo.occupation} at {userInfo.company}</p>
+                            ) : (
+                                <p>Occupation: {userInfo.occupation}</p>
+                            )
+                        }
                         <p>Education: {userInfo.education}</p>
                     </div>
                     <div className="col-6">

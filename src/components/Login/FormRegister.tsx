@@ -52,10 +52,9 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
             houseNumber: yup.string(),
             zip: yup.string(),
             occupation: yup.string().required(),
-            company: yup.string().required(),
+            company: yup.string(),
             education: yup.string(),
             languages: yup.string()
-
         }),
         onSubmit: (values, { resetForm }) => {
             const newUser: User = {
@@ -301,9 +300,6 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         value={formik.values.company}
                         onBlur={formik.handleBlur}
                     />
-                    {formik.touched.company && formik.errors.company &&
-                        <small className="m-0 ms-2">{formik.errors.company}</small>
-                    }
                 </div>
                 {/* Education */}
                 <div className="d-flex flex-column col-6 mt-2">

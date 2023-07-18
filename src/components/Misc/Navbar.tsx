@@ -68,12 +68,11 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                         </div>
                     </div>
                 </nav>
+                    {/* Nav Underline */}
                     <div className="navColorDiv"></div>
                     <div className="navColorDiv" style={{ opacity: 0.70 }}></div>
                     <div className="navColorDiv" style={{ opacity: 0.30 }}></div>
                 </div>
-
-
             }
         </>
     )

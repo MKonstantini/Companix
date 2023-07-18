@@ -14,7 +14,7 @@ export default interface User {
     houseNumber ?: string,
     zip ?: string
     occupation: string,
-    company: string,
+    company?: string,
     education?: string,
     languages?: string,
 }
