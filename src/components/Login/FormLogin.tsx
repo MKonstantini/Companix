@@ -1,5 +1,5 @@
 import { alertError, alertSuccess } from "../../services/alertFunctions";
-import { getUser, } from "../../services/dbFunctions";
+import { getUserByEmail } from "../../services/dbFunctions";
 import { FunctionComponent, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
@@ -25,7 +25,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
         }),
         onSubmit: (values, { resetForm }) => {
             resetForm()
-            getUser(values.email, values.password)
+            getUserByEmail(values.email, values.password)
                 .then((res: any) => res.data)
                 .then((data) => {
                     if (data.length > 0) {
@@ -98,7 +98,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                 <p className="mt-2 mb-0 text-center">Demo Accounts:</p>
                 <div className="mb-3 text-center">
                     <button className="btn" onClick={() => {
-                        getUser("lucya@gmail.com", "password1")
+                        getUserByEmail("lucya@gmail.com", "password1")
                             .then((res: any) => res.data)
                             .then((data) => {
                                 if (data.length > 0) {
@@ -116,7 +116,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                     }}><small>Regular</small></button>
 
                     <button className="btn" onClick={() => {
-                        getUser("gabrielj@gmail.com", "password1")
+                        getUserByEmail("gabrielj@gmail.com", "password1")
                             .then((res: any) => res.data)
                             .then((data) => {
                                 if (data.length > 0) {
@@ -134,7 +134,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                     }}><small>Business</small></button>
 
                     <button className="btn" onClick={() => {
-                        getUser("matanko35@gmail.com", "password1")
+                        getUserByEmail("matanko35@gmail.com", "password1")
                             .then((res: any) => res.data)
                             .then((data) => {
                                 if (data.length > 0) {

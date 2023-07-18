@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React, { useState, createContext } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import './App.css';
@@ -10,8 +11,10 @@ import NoPage from './components/Misc/NoPage';
 import Navbar from './components/Misc/Navbar';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
-import { ToastContainer } from 'react-toastify';
 import User from './interfaces/User';
+import ViewCard from './components/Home/ViewCard';
+import EditCard from './components/Home/EditCard';
+import About from './components/Home/About';
 
 
 export const LoginContext = createContext<any>(false)
@@ -32,6 +35,10 @@ function App() {
               <Route path='/' element={<Login />} />
 
               <Route path='/home' element={<Home />} />
+              <Route path='/viewcard/:id' element={<ViewCard />} />
+              <Route path='/editcard/:type' element={<EditCard />} />
+              <Route path='/about' element={<About />} />
+
               <Route path='/mycompany' element={<MyCompany />} />
               <Route path='/businesscards' element={<BusinessCards />} />
 

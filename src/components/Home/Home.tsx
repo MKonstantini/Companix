@@ -38,14 +38,14 @@ const Home: FunctionComponent<HomeProps> = () => {
                 </div>
                 {/* Card Btns */}
                 <div className="mt-3">
-                    <button className="btn btn-outline-secondary rounded-5 me-2">
+                    <Link to={`/viewcard/${userInfo.id}`} className="btn btn-outline-secondary rounded-5 me-2">
                         <i className="fa-solid fa-magnifying-glass me-2"></i>
                         View
-                    </button>
-                    <button className="btn btn-outline-secondary rounded-5">
+                    </Link>
+                    <Link to={"/editcard/person"} className="btn btn-outline-secondary rounded-5">
                         <i className="fa-solid fa-user-pen me-2"></i>
                         Edit
-                    </button>
+                    </Link>
                 </div>
 
                 {/* About Link */}

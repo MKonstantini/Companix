@@ -24,6 +24,7 @@ const Card: FunctionComponent<CardProps> = ({ userInfo }) => {
                                 <p>Situated : {userInfo.country}</p>
                             )
                         }
+                        <p>Education: {userInfo.education}</p>
                         {
                             (userInfo.company as string).length > 0 ? (
                                 <p>Occupation: {userInfo.occupation} at {userInfo.company}</p>
@@ -31,8 +32,8 @@ const Card: FunctionComponent<CardProps> = ({ userInfo }) => {
                                 <p>Occupation: {userInfo.occupation}</p>
                             )
                         }
-                        <p>Education: {userInfo.education}</p>
                     </div>
+                    {/* img */}
                     <div className="col-6">
                         <img src={userInfo.imageUrl} alt="profile" style={{ width: "100%" }} className="rounded-5 myBorder" />
                     </div>
