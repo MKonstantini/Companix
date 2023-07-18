@@ -25,8 +25,8 @@ const Card: FunctionComponent<CardProps> = ({ userInfo }) => {
                                 <p>Situated : {userInfo.country}</p>
                             )
                         }
-                        <p>Address: {userInfo.street} {userInfo.houseNumber}, {userInfo.city}</p>
-                        <p>ZIP: {userInfo.zip}</p>
+                        <p>Work: {userInfo.occupation} at {userInfo.company}</p>
+                        <p>Education: {userInfo.education}</p>
                     </div>
                     <div className="col-6">
                         <img src={userInfo.imageUrl} alt="profile" style={{ width: "100%" }} className="rounded-5 myBorder" />
