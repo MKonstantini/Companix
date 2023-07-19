@@ -13,8 +13,8 @@ const About: FunctionComponent<AboutProps> = () => {
     return (
         <>
             {/* Back Button */}
-            <div className="d-flex justify-content-center mt-5 mb-5">
-                <button className="btn btn-outline-secondary" style={{ width: "12rem" }} onClick={() => navigate(-1)}>Back</button>
+            <div className="d-flex justify-content-center mt-4 mb-5">
+                <button className="btn btn-outline-secondary" style={{ width: "8rem" }} onClick={() => navigate(-1)}>Back</button>
             </div>
         </>
     );

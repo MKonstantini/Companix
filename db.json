@@ -35,7 +35,7 @@
       "street": "Gran Via",
       "houseNumber": "12",
       "zip": "6085091",
-      "occupation": "Bussiness Manager",
+      "occupation": "Business Manager",
       "company": "Warehouses Inc.",
       "education": "BA. Business",
       "languages": "Spanish English"
@@ -58,7 +58,8 @@
       "occupation": "Photographer",
       "company": "Lux Productions",
       "education": "Photography",
-      "languages": "English"
+      "languages": "English",
+      "savedCards": ["101","102"]
     }
   ]
 }

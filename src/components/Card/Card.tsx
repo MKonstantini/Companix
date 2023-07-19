@@ -3,7 +3,6 @@ import User from "../../interfaces/User";
 
 interface CardProps {
     userInfo: User
-
 }
 
 const Card: FunctionComponent<CardProps> = ({ userInfo }) => {

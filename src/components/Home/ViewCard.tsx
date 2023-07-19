@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useFetch } from "../../services/dbFunctions";
 import User from "../../interfaces/User";
 
-
 interface ViewCardProps {
 
 }
@@ -23,8 +22,7 @@ const ViewCard: FunctionComponent<ViewCardProps> = () => {
                         {/* Title */}
                         <div className="mt-5 mb-5 ">
                             <p className="m-0">- View -</p>
-                            <h1 className="display-6 m-0"><b>{userInfo.firstName} {userInfo.lastName}'s</b></h1>
-                            <h1 className="display-6"><b>Card</b></h1>
+                            <h1 className="display-6 m-0"><b>Card</b></h1>
                         </div>
 
                         {/* Profile Picture */}
@@ -33,6 +31,7 @@ const ViewCard: FunctionComponent<ViewCardProps> = () => {
                             <img src={userInfo.imageUrl} alt="profile" style={{ width: "100%" }} className="rounded-5 myBorder boxShadow" />
                         </div>
 
+                        {/* Info */}
                         <div className="row mt-5 ">
                             <p className="mb-2">- Info -</p>
                             <hr />
@@ -82,8 +81,8 @@ const ViewCard: FunctionComponent<ViewCardProps> = () => {
                             </div>
 
                             {/* Back Button */}
-                            <div className="d-flex justify-content-center mt-5 mb-5">
-                                <button className="btn btn-outline-secondary" style={{ width: "12rem" }} onClick={() => navigate(-1)}>Back</button>
+                            <div className="d-flex justify-content-center mt-4 mb-5">
+                                <button className="btn btn-outline-secondary" style={{ width: "8rem" }} onClick={() => navigate(-1)}>Back</button>
                             </div>
                         </div>
                     </div >

@@ -1,7 +1,7 @@
 import { FunctionComponent, useContext, useEffect, useRef, useState } from "react";
 import FormLogin from "./FormLogin";
 import FormRegister from "./FormRegister";
-import { LoginContext, UserContext } from "../../App";
+import { LoginContext } from "../../App";
 
 interface LoginProps {
 
@@ -9,7 +9,6 @@ interface LoginProps {
 
 const Login: FunctionComponent<LoginProps> = () => {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
-    const [userInfo, setUserInfo] = useContext(UserContext)
 
     //Reset Login Session
     sessionStorage.clear()

@@ -2,40 +2,39 @@ import { FunctionComponent, useContext } from "react";
 import { Field, FormikProvider, useFormik } from "formik";
 import * as yup from "yup"
 import User from "../../interfaces/User";
-import { addUser, putUser } from "../../services/dbFunctions";
+import { putUser } from "../../services/dbFunctions";
 import { alertSuccess } from "../../services/alertFunctions";
 import { useNavigate } from "react-router-dom";
 
-import { LoginContext, UserContext } from "../../App";
+import { UserContext } from "../../App";
 
-interface FormRegisterProps {
+interface FormEditProps {
 
 }
 
-const FormRegister: FunctionComponent<FormRegisterProps> = () => {
-    const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
+const FormEdit: FunctionComponent<FormEditProps> = () => {
     const [userInfo, setUserInfo] = useContext(UserContext)
     const navigate = useNavigate()
 
     let formik = useFormik({
         initialValues: {
-            accountType: "",
-            firstName: "",
-            lastName: "",
-            phone: "",
-            email: "",
-            password: "",
-            imageUrl: "",
-            country: "",
-            state: "",
-            city: "",
-            street: "",
-            houseNumber: "",
-            zip: "",
-            occupation: "",
-            company: "",
-            education: "",
-            languages: ""
+            accountType: userInfo.accountType,
+            firstName: userInfo.firstName,
+            lastName: userInfo.lastName,
+            phone: userInfo.phone,
+            email: userInfo.email,
+            password: userInfo.password,
+            imageUrl: userInfo.imageUrl,
+            country: userInfo.country,
+            state: userInfo.state,
+            city: userInfo.city,
+            street: userInfo.street,
+            houseNumber: userInfo.houseNumber,
+            zip: userInfo.zip,
+            occupation: userInfo.occupation,
+            company: userInfo.company,
+            education: userInfo.education,
+            languages: userInfo.languages
         },
         validationSchema: yup.object({
             accountType: yup.string().required("account type is a required field"),
@@ -58,7 +57,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
         }),
         onSubmit: (values, { resetForm }) => {
             const newUser: User = {
-                id: (Math.floor(Math.random() * 999 - 100) + 100),
+                id: userInfo.id,
                 accountType: values.accountType,
                 firstName: values.firstName,
                 lastName: values.lastName,
@@ -79,12 +78,10 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
             };
 
             sessionStorage.setItem("userInfo", JSON.stringify(newUser))
-            alertSuccess(`New user created. Welcome ${values.email}!`)
-            sessionStorage.setItem("isLoggedIn", "true")
+            alertSuccess(`User details updated successfully!`)
+            putUser(userInfo.id, newUser)
             setUserInfo(newUser)
-            setIsLoggedIn(true)
             navigate("/home")
-            addUser(newUser)
             resetForm()
         }
     })
@@ -92,6 +89,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
     return (
         <FormikProvider value={formik}>
             <form onSubmit={formik.handleSubmit} className="p-1 row d-flex justify-content-center">
+                <hr />
                 {/* First Name */}
                 <div className="d-flex flex-column col-6 mt-2">
                     <label htmlFor="firstName" className="ms-2">First Name *</label>
@@ -105,7 +103,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         onBlur={formik.handleBlur}
                     />
                     {formik.touched.firstName && formik.errors.firstName &&
-                        <small className="m-0 ms-2">{formik.errors.firstName}</small>
+                        <small className="m-0 ms-2">{formik.errors.firstName as string}</small>
                     }
 
                 </div>
@@ -122,7 +120,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         onBlur={formik.handleBlur}
                     />
                     {formik.touched.lastName && formik.errors.lastName &&
-                        <small className="m-0 ms-2">{formik.errors.lastName}</small>
+                        <small className="m-0 ms-2">{formik.errors.lastName as string}</small>
                     }
                 </div>
                 {/* Phone */}
@@ -138,7 +136,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         onBlur={formik.handleBlur}
                     />
                     {formik.touched.phone && formik.errors.phone &&
-                        <small className="m-0 ms-2">{formik.errors.phone}</small>
+                        <small className="m-0 ms-2">{formik.errors.phone as string}</small>
                     }
                 </div>
                 {/* Email */}
@@ -154,7 +152,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         onBlur={formik.handleBlur}
                     />
                     {formik.touched.email && formik.errors.email &&
-                        <small className="m-0 ms-2">{formik.errors.email}</small>
+                        <small className="m-0 ms-2">{formik.errors.email as string}</small>
                     }
                 </div>
                 {/* Password */}
@@ -170,7 +168,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         onBlur={formik.handleBlur}
                     />
                     {formik.touched.password && formik.errors.password &&
-                        <small className="m-0 ms-2">{formik.errors.password}</small>
+                        <small className="m-0 ms-2">{formik.errors.password as string}</small>
                     }
                 </div>
                 {/* imageUrl */}
@@ -199,7 +197,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         onBlur={formik.handleBlur}
                     />
                     {formik.touched.country && formik.errors.country &&
-                        <small className="m-0 ms-2">{formik.errors.country}</small>
+                        <small className="m-0 ms-2">{formik.errors.country as string}</small>
                     }
                 </div>
                 {/* State */}
@@ -228,7 +226,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         onBlur={formik.handleBlur}
                     />
                     {formik.touched.city && formik.errors.city &&
-                        <small className="m-0 ms-2">{formik.errors.city}</small>
+                        <small className="m-0 ms-2">{formik.errors.city as string}</small>
                     }
                 </div>
                 {/* Street */}
@@ -283,7 +281,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                         onBlur={formik.handleBlur}
                     />
                     {formik.touched.occupation && formik.errors.occupation &&
-                        <small className="m-0 ms-2">{formik.errors.occupation}</small>
+                        <small className="m-0 ms-2">{formik.errors.occupation as string}</small>
                     }
                 </div>
                 {/* Company */}
@@ -326,7 +324,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                     />
                 </div>
                 {/* Account Type */}
-                <div className="mt-3 ms-4 mb-0">
+                <div className="mt-3 ms-4 mb-4">
                     <div id="accountType">Account Type</div>
                     <div className="d-flex" role="group" aria-labelledby="accountType">
                         <label className="me-3 m-sm-0">
@@ -359,11 +357,17 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                     </div>
                 </div>
 
+                <hr />
                 {/* Submit */}
-                <button type="submit" disabled={!formik.isValid || !formik.dirty} className="btn btn-outline-secondary mt-4 mb-3" style={{ width: "8rem" }}>Register</button>
+
+                <div className="d-flex justify-content-center mt-4 mb-5">
+                    <button type="button" className="btn btn-outline-secondary mb-3 me-4" style={{ width: "8rem" }} onClick={() => navigate(-1)}>Back</button>
+
+                    <button type="submit" disabled={!formik.isValid || !formik.dirty} className="btn btn-outline-secondary mb-3" style={{ width: "8rem" }}>Update</button>
+                </div>
             </form>
         </FormikProvider >
     );
 }
 
-export default FormRegister;
+export default FormEdit;

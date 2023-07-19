@@ -23,12 +23,15 @@ useEffect(() => {
 return (user)
 }
 
-
 export function addUser(user : User) {
     return axios.post(dbUrl, user)
 }
 
-export function deleteUser(userId : string) {
+export function putUser(userId: number, editedUser: User) {
+    return axios.put(`${dbUrl}/${userId}`, editedUser)
+}
+
+export function deleteUser(userId : number) {
     return axios.delete(`${dbUrl}/${userId}`)
 }
 

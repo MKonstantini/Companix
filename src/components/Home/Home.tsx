@@ -31,7 +31,7 @@ const Home: FunctionComponent<HomeProps> = () => {
 
                 {/* Card */}
                 <div className="mt-5">
-                    <p className="mb-2">-Your Card-</p>
+                    <p className="mb-2">- Your Card -</p>
                     <div>
                         <Card userInfo={userInfo} />
                     </div>
@@ -42,7 +42,7 @@ const Home: FunctionComponent<HomeProps> = () => {
                         <i className="fa-solid fa-magnifying-glass me-2"></i>
                         View
                     </Link>
-                    <Link to={"/editcard/person"} className="btn btn-outline-secondary rounded-5">
+                    <Link to={"/editcard/user"} className="btn btn-outline-secondary rounded-5">
                         <i className="fa-solid fa-user-pen me-2"></i>
                         Edit
                     </Link>
