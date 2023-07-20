@@ -1,6 +1,5 @@
 import { ChangeEvent, FunctionComponent, useContext, useState } from "react";
 import Card from "../Card/Card";
-import { useFetch } from "../../services/dbFunctions";
 import { UserContext } from "../../App";
 
 interface BusinessCardsProps {
@@ -35,10 +34,10 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                         All
                     </label>
 
-                    <input type="radio" className="btn-check" id="radioFavorite" name="radioFilter" value="favorite" checked={isFilterSelected('favorite')} onChange={handleRadioClick} />
-                    <label htmlFor="radioFavorite" className="btn btn-outline-secondary rounded-5 me-2">
+                    <input type="radio" className="btn-check" id="radioFavorites" name="radioFilter" value="favorites" checked={isFilterSelected('favorites')} onChange={handleRadioClick} />
+                    <label htmlFor="radioFavorites" className="btn btn-outline-secondary rounded-5 me-2">
                         <i className="fa-solid fa-heart me-2"></i>
-                        Favorite
+                        Favorites
                     </label>
 
                     <input type="radio" className="btn-check" id="radioSearch" name="radioFilter" value="search" checked={isFilterSelected('search')} onChange={handleRadioClick} />
@@ -46,18 +45,20 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                         Search...
                     </label>
                 </form>
+                <hr className="mt-3 mb-3" />
 
                 {/* Card Showcase */}
-                {
-                    userInfo.savedCards.map((id: string) =>
-                        <>
-                            <p key={id}>card is {id}</p>
-                            {
-                            }
-                        </>
-                    )
-                }
+                <div className="row mt-3 ms-1">
+                    {
+                        userInfo.savedCards.map((id: string) =>
+                            <div className="col-6">
+                                <Card key={id} userId={id} cardType="gallery" />
+                            </div>
+                        )
+                    }
+                </div>
 
+                <hr className="mt-3 mb-3" />
             </div>
         </>
     );

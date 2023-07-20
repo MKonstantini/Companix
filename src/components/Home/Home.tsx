@@ -33,19 +33,8 @@ const Home: FunctionComponent<HomeProps> = () => {
                 <div className="mt-5">
                     <p className="mb-2">- Your Card -</p>
                     <div>
-                        <Card userInfo={userInfo} />
+                        <Card userId={userInfo.id} cardType="personal" />
                     </div>
-                </div>
-                {/* Card Btns */}
-                <div className="mt-3">
-                    <Link to={`/viewcard/${userInfo.id}`} className="btn btn-outline-secondary rounded-5 me-2">
-                        <i className="fa-solid fa-magnifying-glass me-2"></i>
-                        View
-                    </Link>
-                    <Link to={"/editcard/user"} className="btn btn-outline-secondary rounded-5">
-                        <i className="fa-solid fa-user-pen me-2"></i>
-                        Edit
-                    </Link>
                 </div>
 
                 {/* About Link */}
