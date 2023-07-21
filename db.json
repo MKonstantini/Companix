@@ -59,8 +59,13 @@
       "company": "Lux Productions",
       "education": "Photography",
       "languages": "English",
-      "savedCards": ["101","102"],
-      "likedCards": ["102"]
+      "savedCards": [
+        "101",
+        "102"
+      ],
+      "likedCards": [
+        "102"
+      ]
     }
   ]
 }

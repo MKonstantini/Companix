@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { useFetch } from "../../services/dbFunctions";
 import { Link } from "react-router-dom";
 import LikeBtn from "./LikeBtn";
+import RemoveBtn from "./RemoveBtn";
 
 interface CardProps {
     userId: string
@@ -55,16 +56,15 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
                     {/* Card Btns */}
                     {
                         cardType === "gallery" ? (
-                            <div className="mt-3">
+                            <div className="mt-3 mb-3">
                                 <Link to={`/viewcard/${userInfo.id}`} className="btn btn-outline-secondary rounded-5 me-2">
                                     <i className="fa-solid fa-magnifying-glass me-2"></i>
                                     View
                                 </Link>
+
                                 <LikeBtn cardId={userId} />
-                                <button className="btn btn-outline-secondary rounded-5 me-2">
-                                    <i className="fa-solid fa-x me-2"></i>
-                                    Remove
-                                </button>
+
+                                <RemoveBtn cardId={userId} />
                             </div>
 
                         ) : (

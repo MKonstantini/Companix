@@ -31,6 +31,18 @@ export function putUser(userId: number, editedUser: User) {
     return axios.put(`${dbUrl}/${userId}`, editedUser)
 }
 
+export function patchLiked(userId: number, newValue: string ) {
+    return axios.patch(`${dbUrl}/${userId}`, {
+        'likedCards' : newValue
+    })
+}
+
+export function patchSaved(userId: number, newValue: string ) {
+    return axios.patch(`${dbUrl}/${userId}`, {
+        'savedCards' : newValue
+    })
+}
+
 export function deleteUser(userId : number) {
     return axios.delete(`${dbUrl}/${userId}`)
 }
