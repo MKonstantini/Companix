@@ -1,6 +1,7 @@
 import { ChangeEvent, FunctionComponent, useContext, useState } from "react";
 import Card from "../Card/Card";
 import { UserContext } from "../../App";
+import Search from "./Search";
 
 interface BusinessCardsProps {
 
@@ -10,10 +11,53 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
     // React Radio Handling Functions
     const [selectedFilter, setSelectedFilter] = useState('all')
     const isFilterSelected = (value: string) => selectedFilter === value
-    const handleRadioClick = (e: ChangeEvent<HTMLInputElement>) => setSelectedFilter(e.currentTarget.value)
+    const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => setSelectedFilter(e.currentTarget.value)
 
     // Get Cards Info
     const [userInfo, setUserInfo] = useContext(UserContext)
+
+    // Display Filter
+    const displaySelectedRadio = (selectedFilter: string) => {
+        switch (selectedFilter) {
+            case "all":
+                return (
+                    userInfo.savedCards.length > 0 ?
+                        <div className="row mt-3 ms-1">
+                            {
+                                userInfo.savedCards.map((id: string) =>
+                                    <div key={id} className="col-6">
+                                        <Card userId={id} cardType="gallery" />
+                                    </div>
+                                )
+                            }
+                        </div> :
+                        <div className="mt-3">
+                            <p className="text-center">No Cards To Display!</p>
+                        </div>
+                )
+            case "favorites":
+                return (
+                    userInfo.likedCards.length > 0 ?
+                        <div className="row mt-3 ms-1">
+                            {
+                                userInfo.likedCards.map((id: string) =>
+                                    <div key={id} className="col-6">
+                                        <Card userId={id} cardType="gallery" />
+                                    </div>
+                                )
+                            }
+                        </div> :
+                        <div className="mt-3">
+                            <p className="text-center">No Cards To Display!</p>
+                        </div>
+                )
+            case "search":
+                return (
+                    <Search />
+                )
+
+        }
+    }
 
 
     return (
@@ -28,19 +72,19 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
 
                 {/* Filters */}
                 <form className="mt-5">
-                    <input type="radio" className="btn-check" id="radioAll" name="radioFilter" value="all" checked={isFilterSelected('all')} onChange={handleRadioClick} />
+                    <input type="radio" className="btn-check" id="radioAll" name="radioFilter" value="all" checked={isFilterSelected('all')} onChange={handleRadioChange} />
                     <label htmlFor="radioAll" className="btn btn-outline-secondary rounded-5 me-2">
                         <i className="fa-solid fa-list me-2"></i>
                         All
                     </label>
 
-                    <input type="radio" className="btn-check" id="radioFavorites" name="radioFilter" value="favorites" checked={isFilterSelected('favorites')} onChange={handleRadioClick} />
+                    <input type="radio" className="btn-check" id="radioFavorites" name="radioFilter" value="favorites" checked={isFilterSelected('favorites')} onChange={handleRadioChange} />
                     <label htmlFor="radioFavorites" className="btn btn-outline-secondary rounded-5 me-2">
                         <i className="fa-solid fa-heart me-2"></i>
                         Favorites
                     </label>
 
-                    <input type="radio" className="btn-check" id="radioSearch" name="radioFilter" value="search" checked={isFilterSelected('search')} onChange={handleRadioClick} />
+                    <input type="radio" className="btn-check" id="radioSearch" name="radioFilter" value="search" checked={isFilterSelected('search')} onChange={handleRadioChange} />
                     <label htmlFor="radioSearch" className="btn btn-outline-secondary rounded-5 me-2">
                         Search...
                     </label>
@@ -48,15 +92,7 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                 <hr className="mt-3 mb-3" />
 
                 {/* Card Showcase */}
-                <div className="row mt-3 ms-1">
-                    {
-                        userInfo.savedCards.map((id: string) =>
-                            <div className="col-6">
-                                <Card key={id} userId={id} cardType="gallery" />
-                            </div>
-                        )
-                    }
-                </div>
+                {displaySelectedRadio(selectedFilter)}
 
                 <hr className="mt-3 mb-3" />
             </div>
