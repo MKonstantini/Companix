@@ -8,18 +8,18 @@ const Search: FunctionComponent<SearchProps> = () => {
     const nameInput = useRef<HTMLInputElement>(null)
     const idInput = useRef<HTMLInputElement>(null)
 
-    const resetInputField = (field: HTMLInputElement) => { if (field != null) field.value = "" }
+    const resetInputField = (ref: any) => { if (ref != null) ref.value = "" }
 
     return (
         <>
             <form className="row container text-center">
                 <div className="col-6">
                     <label htmlFor="searchName" className="me-5">By Name</label>
-                    <input ref={nameInput} type="text" id="searchName" />
+                    <input ref={nameInput} type="text" id="searchName" onClick={() => resetInputField(idInput.current)} />
                 </div>
                 <div className="col-6">
                     <label htmlFor="searchId" className="me-5">By ID</label>
-                    <input ref={idInput} type="text" id="searchId" onClick={resetInputField(nameInput.current as HTMLInputElement)} />
+                    <input ref={idInput} type="text" id="searchId" onClick={() => resetInputField(nameInput.current)} />
                 </div>
                 <hr className="mt-3" />
             </form>
