@@ -25,20 +25,20 @@
       "accountType": "Business",
       "firstName": "Lucas",
       "lastName": "Galanis",
-      "phone": "555-996-1231",
+      "phone": "054-112-5739",
       "email": "lucasg@gmail.com",
       "password": "password1",
       "imageUrl": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Mzl8NzYwODI3NzR8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       "country": "Greece",
       "state": "",
-      "city": "Rhodes",
-      "street": "Hora",
-      "houseNumber": "12",
-      "zip": "6085091",
+      "city": "Athens",
+      "street": "Ermou",
+      "houseNumber": "21",
+      "zip": "7044090",
       "occupation": "Business Manager",
       "company": "Warehouses Inc.",
       "education": "BA. Business",
-      "languages": "Greek English",
+      "languages": "Greek, English",
       "savedCards": [
         "101",
         "103"
@@ -46,15 +46,15 @@
       "likedCards": [
         "103"
       ],
-      "companyCards":[
+      "companyCards": [
         {
-          "name" : "Warehouses Inc.",
-          "email" : "warehousesinc.business@gmail.com",
-          "location" : "Kosta Varnali 64, Thessaloniki",
-          "phone" : "965-906-1771"
+          "id": 0,
+          "name": "Warehouses Inc.",
+          "email": "warehousesinc.business@gmail.com",
+          "location": "Kosta Varnali 64, Thessaloniki",
+          "phone": "965-906-1773"
         }
       ]
-
     },
     {
       "id": 103,
@@ -74,7 +74,7 @@
       "occupation": "Photographer",
       "company": "Lux Productions",
       "education": "Photography",
-      "languages": "English",
+      "languages": "English, Spanish",
       "savedCards": [
         "101",
         "102"

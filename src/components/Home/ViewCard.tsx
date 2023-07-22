@@ -52,6 +52,9 @@ const ViewCard: FunctionComponent<ViewCardProps> = () => {
                             {/* Rightside */}
                             <div className="col-sm-6 text-sm-end pe-sm-0">
                                 {
+                                    userInfo.languages && <p>Languages: {userInfo.languages}</p>
+                                }
+                                {
                                     (userInfo.street as string).length > 0 && (userInfo.houseNumber as string).length > 0 ? (
                                         <p>Address: {userInfo.street} {userInfo.houseNumber}, {userInfo.city}</p>
                                     ) : (
@@ -64,9 +67,6 @@ const ViewCard: FunctionComponent<ViewCardProps> = () => {
                                     ) : (
                                         <p>Situated : {userInfo.country}</p>
                                     )
-                                }
-                                {
-                                    userInfo.languages && <p>Languages: {userInfo.languages}</p>
                                 }
                                 {
                                     userInfo.zip && <p>Zip: {userInfo.zip}</p>

@@ -3,6 +3,7 @@ import { UserContext } from "../../App";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { patchCompanyCard } from "../../services/dbFunctions";
+import CCard from "../../interfaces/CCard";
 
 interface CompanyCardProps {
     cardNum: number
@@ -15,6 +16,7 @@ const CompanyCard: FunctionComponent<CompanyCardProps> = ({ cardNum }) => {
 
     let formik = useFormik({
         initialValues: {
+            id: userInfo.companyCards[cardNum].id,
             name: userInfo.companyCards[cardNum].name,
             email: userInfo.companyCards[cardNum].email,
             location: userInfo.companyCards[cardNum].location,
@@ -26,7 +28,7 @@ const CompanyCard: FunctionComponent<CompanyCardProps> = ({ cardNum }) => {
             location: yup.string().required(),
             phone: yup.string().required()
         }),
-        onSubmit: (values) => {
+        onSubmit: (values: CCard) => {
             setIsEditing(false)
             const cardsData = userInfo.companyCards
             cardsData.splice(cardNum, 1, values)
@@ -127,7 +129,7 @@ const CompanyCard: FunctionComponent<CompanyCardProps> = ({ cardNum }) => {
             {/* Card Buttons */}
             <div className="mt-3 mb-3">
                 <button className="btn btn-outline-secondary rounded-5 me-2" onClick={() => { setIsEditing(!isEditing) }}>
-                    <i className="me-2 fa-regular fa-pen-to-square"></i>
+                    <i className="me-2 fa-solid fa-pen-to-square"></i>
                     Edit
                 </button>
                 <button className="btn btn-outline-secondary rounded-5 me-2">

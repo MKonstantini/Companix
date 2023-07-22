@@ -44,7 +44,7 @@ export function patchSaved(userId: number, newValue: string ) {
 }
 
 export function patchCompanyCard(userId: number, editedArray: object[]) {
-    return axios.put(`${dbUrl}/${userId}`, {"companyCards": editedArray})
+    return axios.patch(`${dbUrl}/${userId}`, {"companyCards": editedArray})
 }
 
 
