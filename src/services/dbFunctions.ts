@@ -12,10 +12,6 @@ export function getUserByEmail(email: string, password: string) {
     return axios.get(`${dbUrl}?email=${email}&password=${password}`)
 }
 
-// export function getUserByParameter(parameterName: string, parameterValue: string) {
-//     return axios.get(`${dbUrl}?${parameterName}=${parameterValue}`)
-// }
-
 export function useFetch(field:string) {
     let [user, setUser] = useState<any>()
     useEffect(() => {
