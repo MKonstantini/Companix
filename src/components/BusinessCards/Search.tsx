@@ -1,6 +1,8 @@
 import { FunctionComponent, useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../../App";
-import { getUserByParameter } from "../../services/dbFunctions";
+import { getAll } from "../../services/dbFunctions";
+import User from "../../interfaces/User";
+import Card from "../Card/Card";
 
 interface SearchProps {
 
@@ -8,10 +10,15 @@ interface SearchProps {
 
 const Search: FunctionComponent<SearchProps> = () => {
     const [userInfo, setUserInfo] = useContext(UserContext)
-    const [foundCardsId, setFoundCardsId] = useState([])
+    const [foundCardsId, setFoundCardsId] = useState<number[]>([])
 
     const nameInput = useRef<HTMLInputElement>(null)
     const idInput = useRef<HTMLInputElement>(null)
+
+    let allUsers: User[] = []
+    getAll()
+        .then((res) => res.data)
+        .then((data) => allUsers = data)
 
     const resetInputField = (ref: any) => { if (ref != null) ref.value = "" }
 
@@ -23,13 +30,16 @@ const Search: FunctionComponent<SearchProps> = () => {
     const inputHandlerId = (e: any) => {
         setFoundCardsId([])
         const input = e.target.value
-        getUserByParameter("id", input)
-            .then((res) => res.data)
-            .then((data) => {
-                if (data.length > 0) {
-                    setFoundCardsId(data[0].id)
+        if (input !== "") {
+            const found: number[] = []
+            allUsers.forEach(user => {
+                if (String(user.id).includes(input) && userInfo.id !== user.id) {
+                    found.push(user.id)
+                    setFoundCardsId(found)
+                    console.log(found)
                 }
-            })
+            });
+        }
     }
 
     return (
@@ -48,14 +58,16 @@ const Search: FunctionComponent<SearchProps> = () => {
                 </div>
                 <hr className="mt-3" />
             </form>
-            <div>
+            <div className="row">
                 {
-                    foundCardsId.length > 0 && <p>SOMETHING FOUND</p>
+                    foundCardsId.length > 0 ? foundCardsId.map((id) =>
+                        <div key={id} className="col-6">
+                            <Card userId={String(id)} cardType="gallery" />
+                        </div>
+                    ) : (nameInput.current?.value === "" && idInput.current?.value === "")
+                        ? <p className="text-center my-5">Awaiting Input...</p>
+                        : <p className="text-center my-5">No Results Found...</p>
                 }
-                <p className="text-center my-5">Awaiting Input...</p>
-
-                <button className="btn btn-dark"
-                    onClick={() => console.log(foundCardsId)}>Log FoundIds</button>
             </div>
         </>
     );

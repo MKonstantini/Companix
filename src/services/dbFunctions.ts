@@ -4,17 +4,17 @@ import { useEffect, useState } from "react";
 const dbUrl : string = `${process.env.REACT_APP_API}/users`;
 
 
-// export function getAll() {
-//     return axios.get(dbUrl)
-// }
+export function getAll() {
+    return axios.get(dbUrl)
+}
 
 export function getUserByEmail(email: string, password: string) {
     return axios.get(`${dbUrl}?email=${email}&password=${password}`)
 }
 
-export function getUserByParameter(parameterName: string, parameterValue: string) {
-    return axios.get(`${dbUrl}?${parameterName}=${parameterValue}`)
-}
+// export function getUserByParameter(parameterName: string, parameterValue: string) {
+//     return axios.get(`${dbUrl}?${parameterName}=${parameterValue}`)
+// }
 
 export function useFetch(field:string) {
     let [user, setUser] = useState<any>()
