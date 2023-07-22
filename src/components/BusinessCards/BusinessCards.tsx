@@ -31,7 +31,7 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                                 )
                             }
                         </div> :
-                        <div className="mt-3">
+                        <div className="my-5">
                             <p className="text-center">No Cards To Display!</p>
                         </div>
                 )
@@ -47,7 +47,7 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                                 )
                             }
                         </div> :
-                        <div className="mt-3">
+                        <div className="my-5">
                             <p className="text-center">No Cards To Display!</p>
                         </div>
                 )
