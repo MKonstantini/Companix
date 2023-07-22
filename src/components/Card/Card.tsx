@@ -18,7 +18,7 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
             {
                 userInfo &&
                 <>
-                    <div className="bg-body myBorder boxShadow p-4" style={{ maxWidth: "38rem", minHeight: "20rem" }}>
+                    <div className="bg-body myBorder boxShadow p-4" style={{ maxWidth: "38rem", height: "21.5rem" }}>
                         <div className="row">
                             <div className="col-6">
                                 <p>Name : {userInfo.firstName} {userInfo.lastName}</p>
@@ -37,7 +37,7 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
                                     (userInfo.company as string).length > 0 ? (
                                         <p>Occupation: {userInfo.occupation} at {userInfo.company}</p>
                                     ) : (
-                                        <p>Occupation: {userInfo.occupation}</p>
+                                        <p>Occupation: {userInfo.occupation} (unemployed)</p>
                                     )
                                 }
                             </div>
@@ -66,7 +66,6 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
 
                                 <RemoveBtn cardId={userId} />
                             </div>
-
                         ) : (
                             < div className="mt-3">
                                 <Link to={`/viewcard/${userInfo.id}`} className="btn btn-outline-secondary rounded-5 me-2">

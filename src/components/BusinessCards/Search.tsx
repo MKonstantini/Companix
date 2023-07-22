@@ -67,7 +67,7 @@ const Search: FunctionComponent<SearchProps> = () => {
                 </div>
                 <hr className="mt-3" />
             </form>
-            <div className="row">
+            <div className="row mt-2">
                 {
                     foundCardsId.length ? foundCardsId.map((id) =>
                         <div key={id} className="col-6">

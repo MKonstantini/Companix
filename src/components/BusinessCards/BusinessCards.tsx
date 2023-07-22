@@ -2,6 +2,7 @@ import { ChangeEvent, FunctionComponent, useContext, useState } from "react";
 import Card from "../Card/Card";
 import { UserContext } from "../../App";
 import Search from "./Search";
+import CompanyCards from "./CompanyCards";
 
 interface BusinessCardsProps {
 
@@ -55,6 +56,10 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                 return (
                     <Search />
                 )
+            case "companyCards":
+                return (
+                    <CompanyCards />
+                )
 
         }
     }
@@ -71,30 +76,39 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                 </div>
 
                 {/* Filters */}
-                <form className="mt-5">
-                    <input type="radio" className="btn-check" id="radioAll" name="radioFilter" value="all" checked={isFilterSelected('all')} onChange={handleRadioChange} />
-                    <label htmlFor="radioAll" className="btn btn-outline-secondary rounded-5 me-2">
-                        <i className="fa-solid fa-list me-2"></i>
-                        All
-                    </label>
+                <form className="mt-5 d-flex justify-content-between">
+                    <div className="d-flex flex-column flex-sm-row">
+                        <input type="radio" className="btn-check" id="radioAll" name="radioFilter" value="all" checked={isFilterSelected('all')} onChange={handleRadioChange} />
+                        <label htmlFor="radioAll" className="btn btn-outline-secondary rounded-5 me-2 text-start ps-3">
+                            <i className="fa-solid fa-list me-2"></i>
+                            All
+                        </label>
 
-                    <input type="radio" className="btn-check" id="radioFavorites" name="radioFilter" value="favorites" checked={isFilterSelected('favorites')} onChange={handleRadioChange} />
-                    <label htmlFor="radioFavorites" className="btn btn-outline-secondary rounded-5 me-2">
-                        <i className="fa-solid fa-heart me-2"></i>
-                        Favorites
-                    </label>
+                        <input type="radio" className="btn-check" id="radioFavorites" name="radioFilter" value="favorites" checked={isFilterSelected('favorites')} onChange={handleRadioChange} />
+                        <label htmlFor="radioFavorites" className="btn btn-outline-secondary rounded-5 me-2">
+                            <i className="fa-solid fa-heart me-2"></i>
+                            Favorites
+                        </label>
 
-                    <input type="radio" className="btn-check" id="radioSearch" name="radioFilter" value="search" checked={isFilterSelected('search')} onChange={handleRadioChange} />
-                    <label htmlFor="radioSearch" className="btn btn-outline-secondary rounded-5 me-2">
-                        Search...
-                    </label>
+                        <input type="radio" className="btn-check" id="radioSearch" name="radioFilter" value="search" checked={isFilterSelected('search')} onChange={handleRadioChange} />
+                        <label htmlFor="radioSearch" className="btn btn-outline-secondary rounded-5 me-2">
+                            Search...
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="radio" className="btn-check" id="radioCompanyCards" name="radioFilter" value="companyCards" checked={isFilterSelected('companyCards')} onChange={handleRadioChange} />
+                        <label htmlFor="radioCompanyCards" className="btn btn-outline-secondary rounded-5 me-2">
+                            Company Cards
+                        </label>
+                    </div>
                 </form>
                 <hr className="mt-3 mb-3" />
 
                 {/* Card Showcase */}
                 {displaySelectedRadio(selectedFilter)}
 
-                <hr className="mt-3 mb-3" />
+                <hr className="mt-2 mb-3" />
             </div>
         </>
     );

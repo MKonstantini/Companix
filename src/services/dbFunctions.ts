@@ -33,15 +33,20 @@ export function putUser(userId: number, editedUser: User) {
 
 export function patchLiked(userId: number, newValue: string ) {
     return axios.patch(`${dbUrl}/${userId}`, {
-        'likedCards' : newValue
+        "likedCards" : newValue
     })
 }
 
 export function patchSaved(userId: number, newValue: string ) {
     return axios.patch(`${dbUrl}/${userId}`, {
-        'savedCards' : newValue
+        "savedCards" : newValue
     })
 }
+
+export function patchCompanyCard(userId: number, editedArray: object[]) {
+    return axios.put(`${dbUrl}/${userId}`, {"companyCards": editedArray})
+}
+
 
 // export function deleteUser(userId : number) {
 //     return axios.delete(`${dbUrl}/${userId}`)

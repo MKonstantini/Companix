@@ -38,7 +38,23 @@
       "occupation": "Business Manager",
       "company": "Warehouses Inc.",
       "education": "BA. Business",
-      "languages": "Greek English"
+      "languages": "Greek English",
+      "savedCards": [
+        "101",
+        "103"
+      ],
+      "likedCards": [
+        "103"
+      ],
+      "companyCards":[
+        {
+          "name" : "Warehouses Inc.",
+          "email" : "warehousesinc.business@gmail.com",
+          "location" : "Kosta Varnali 64, Thessaloniki",
+          "phone" : "965-906-1771"
+        }
+      ]
+
     },
     {
       "id": 103,
