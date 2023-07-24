@@ -128,11 +128,17 @@ const CompanyCard: FunctionComponent<CompanyCardProps> = ({ cardNum }) => {
 
             {/* Card Buttons */}
             <div className="mt-3 mb-3">
+                {/* Edit */}
                 <button className="btn btn-outline-secondary rounded-5 me-2" onClick={() => { setIsEditing(!isEditing) }}>
                     <i className="me-2 fa-solid fa-pen-to-square"></i>
                     Edit
                 </button>
-                <button className="btn btn-outline-secondary rounded-5 me-2">
+                {/* Remove */}
+                <button className="btn btn-outline-secondary rounded-5 me-2" onClick={() => {
+                    const cards = userInfo.companyCards
+                    cards.splice(cardNum, 1)
+                    patchCompanyCard(userInfo.id, cards)
+                }}>
                     <i className="fa-solid fa-x me-2"></i>
                     Remove
                 </button>
