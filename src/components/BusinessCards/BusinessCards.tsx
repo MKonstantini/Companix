@@ -2,7 +2,7 @@ import { ChangeEvent, FunctionComponent, useContext, useState } from "react";
 import Card from "../Card/Card";
 import { UserContext } from "../../App";
 import Search from "./Search";
-import CompanyCards from "./CompanyCards";
+import CompanyCards from "../CompanyCards/CompanyCards";
 
 interface BusinessCardsProps {
 

@@ -29,6 +29,7 @@ const CompanyCard: FunctionComponent<CompanyCardProps> = ({ cardNum }) => {
             phone: yup.string().required()
         }),
         onSubmit: (values: CCard) => {
+            // split to two types - edit and new
             setIsEditing(false)
             const cardsData = userInfo.companyCards
             cardsData.splice(cardNum, 1, values)
@@ -135,9 +136,9 @@ const CompanyCard: FunctionComponent<CompanyCardProps> = ({ cardNum }) => {
                 </button>
                 {/* Remove */}
                 <button className="btn btn-outline-secondary rounded-5 me-2" onClick={() => {
-                    const cards = userInfo.companyCards
-                    cards.splice(cardNum, 1)
-                    patchCompanyCard(userInfo.id, cards)
+                    const cardsData = userInfo.companyCards
+                    cardsData.splice(cardNum, 1)
+                    patchCompanyCard(userInfo.id, cardsData)
                 }}>
                     <i className="fa-solid fa-x me-2"></i>
                     Remove
