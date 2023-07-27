@@ -1,8 +1,8 @@
-import { FunctionComponent, useContext, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import { UserContext } from "../../App";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { patchCompanyCard } from "../../services/dbFunctions";
+import { getUserByEmail, patchCompanyCard } from "../../services/dbFunctions";
 import CCard from "../../interfaces/CCard";
 
 interface CompanyCardProps {
@@ -34,6 +34,14 @@ const CompanyCard: FunctionComponent<CompanyCardProps> = ({ cardNum }) => {
             const cardsData = userInfo.companyCards
             cardsData.splice(cardNum, 1, values)
             patchCompanyCard(userInfo.id, cardsData)
+
+            getUserByEmail(userInfo.email, userInfo.password)
+                .then((res: any) => res.data)
+                .then((data) => {
+                    setUserInfo(data[0])
+                    sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
+                })
+                .catch((err) => console.log(err))
         }
     })
 
@@ -139,6 +147,13 @@ const CompanyCard: FunctionComponent<CompanyCardProps> = ({ cardNum }) => {
                     const cardsData = userInfo.companyCards
                     cardsData.splice(cardNum, 1)
                     patchCompanyCard(userInfo.id, cardsData)
+                    getUserByEmail(userInfo.email, userInfo.password)
+                        .then((res: any) => res.data)
+                        .then((data) => {
+                            setUserInfo(data[0])
+                            sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
+                        })
+                        .catch((err) => console.log(err))
                 }}>
                     <i className="fa-solid fa-x me-2"></i>
                     Remove

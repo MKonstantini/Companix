@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "id": 101,
+      "accountType": "Admin",
+      "firstName": "Matan",
+      "lastName": "Konstantini",
+      "phone": "050-590-1879",
+      "email": "matanko35@gmail.com",
+      "password": "password1",
+      "imageUrl": "https://scontent.ftlv20-1.fna.fbcdn.net/v/t1.6435-9/59841520_2553526611344986_4025429214520934400_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=JY361hw6kXUAX-UvUIZ&_nc_ht=scontent.ftlv20-1.fna&oh=00_AfD67_LXz37HVIVbsg7_aPjuXlMx2NA1eDNTydCpJ1NgMw&oe=64DCC26C",
+      "country": "Israel",
+      "state": "",
+      "city": "Shoham",
+      "street": "HaEtrog",
+      "houseNumber": "48",
+      "zip": "6085000",
+      "occupation": "Web Developer",
+      "company": "",
+      "education": "Fullstack Development",
+      "languages": "English Hebrew German"
+    },
+    {
+      "id": 102,
+      "accountType": "Business",
+      "firstName": "Lucas",
+      "lastName": "Galanis",
+      "phone": "054-112-5739",
+      "email": "lucasg@gmail.com",
+      "password": "password1",
+      "imageUrl": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Mzl8NzYwODI3NzR8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "country": "Greece",
+      "state": "",
+      "city": "Athens",
+      "street": "Ermou",
+      "houseNumber": "21",
+      "zip": "7044090",
+      "occupation": "Business Manager",
+      "company": "Warehouses Inc.",
+      "education": "BA. Business",
+      "languages": "Greek, English",
+      "savedCards": [
+        "101",
+        "103"
+      ],
+      "likedCards": [
+        "103"
+      ],
+      "companyCards": [
+        {
+          "id": 0,
+          "name": "Warehouses Inc.",
+          "email": "warehousesinc.business@gmail.com",
+          "location": "Kosta Varnali 64, Thessaloniki",
+          "phone": "965-906-1773"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "accountType": "Regular",
+      "firstName": "Lucy",
+      "lastName": "Anderson",
+      "phone": "555-906-0749",
+      "email": "lucya@gmail.com",
+      "password": "password1",
+      "imageUrl": "https://images.unsplash.com/photo-1595525669954-55b2face5115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NjB8NzYwODI3NzR8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "country": "USA",
+      "state": "California",
+      "city": "San Jose",
+      "street": "Ailey Ave.",
+      "houseNumber": "18",
+      "zip": "6085091",
+      "occupation": "Photographer",
+      "company": "Lux Productions",
+      "education": "Photography",
+      "languages": "English, Spanish",
+      "savedCards": [
+        "101",
+        "102"
+      ],
+      "likedCards": [
+        "102"
+      ]
+    }
+  ]
+}

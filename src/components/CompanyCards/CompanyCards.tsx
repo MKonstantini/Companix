@@ -1,10 +1,10 @@
-import { FunctionComponent, useContext, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import CompanyCard from "./CompanyCard";
 import { UserContext } from "../../App";
 import CCard from "../../interfaces/CCard";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { patchCompanyCard } from "../../services/dbFunctions";
+import { getUserByEmail, patchCompanyCard } from "../../services/dbFunctions";
 
 interface CompanyCardsProps {
 
@@ -13,6 +13,9 @@ interface CompanyCardsProps {
 const CompanyCards: FunctionComponent<CompanyCardsProps> = () => {
     const [userInfo, setUserInfo] = useContext(UserContext)
     const [isEditing, setIsEditing] = useState(false)
+
+    useEffect(() => {
+    }, [userInfo])
 
     let formik = useFormik({
         initialValues: {
@@ -29,11 +32,20 @@ const CompanyCards: FunctionComponent<CompanyCardsProps> = () => {
             phone: yup.string().required()
         }),
         onSubmit: (values: CCard) => {
-            // split to two types - edit and new
+            formik.resetForm()
             setIsEditing(false)
+
             const cardsData = userInfo.companyCards
-            cardsData.splice(userInfo.companyCards.length, 0, values)
+            cardsData.push(values)
             patchCompanyCard(userInfo.id, cardsData)
+
+            getUserByEmail(userInfo.email, userInfo.password)
+                .then((res: any) => res.data)
+                .then((data) => {
+                    setUserInfo(data[0])
+                    sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
+                })
+                .catch((err) => console.log(err))
         }
     })
 
@@ -131,7 +143,6 @@ const CompanyCards: FunctionComponent<CompanyCardsProps> = () => {
                                 <p>Create A New Company Card!</p>
                             </div>
                     }
-
                 </div>
             </div>
 

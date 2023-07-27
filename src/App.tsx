@@ -11,7 +11,6 @@ import NoPage from './components/Misc/NoPage';
 import Navbar from './components/Misc/Navbar';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
-import User from './interfaces/User';
 import ViewCard from './components/Home/ViewCard';
 import EditCard from './components/Home/EditCard';
 import About from './components/Home/About';
