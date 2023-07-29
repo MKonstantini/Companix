@@ -6,14 +6,13 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import './App.css';
 
 import BusinessCards from './components/BusinessCards/BusinessCards';
-import MyCompany from './components/MyCompany/MyCompany';
 import NoPage from './components/Misc/NoPage';
 import Navbar from './components/Misc/Navbar';
 import Login from './components/Login/Login';
-import Home from './components/Home/Home';
-import ViewCard from './components/Home/ViewCard';
-import EditCard from './components/Home/EditCard';
-import About from './components/Home/About';
+import Profile from './components/Profile/Profile';
+import ViewCard from './components/Profile/ViewCard';
+import EditCard from './components/Profile/EditCard';
+import About from './components/Profile/About';
 
 
 export const LoginContext = createContext<any>(false)
@@ -33,13 +32,12 @@ function App() {
             <Routes>
               <Route path='/' element={<Login />} />
 
-              <Route path='/home' element={<Home />} />
+              <Route path='/businesscards' element={<BusinessCards />} />
+
+              <Route path='/profile' element={<Profile />} />
               <Route path='/viewcard/:id' element={<ViewCard />} />
               <Route path='/editcard/:type' element={<EditCard />} />
               <Route path='/about' element={<About />} />
-
-              <Route path='/mycompany' element={<MyCompany />} />
-              <Route path='/businesscards' element={<BusinessCards />} />
 
               <Route path='*' element={<NoPage />} />
             </Routes>

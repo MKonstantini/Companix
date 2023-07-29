@@ -73,9 +73,8 @@ const Search: FunctionComponent<SearchProps> = () => {
                         <div key={id} className="col-6">
                             <Card userId={String(id)} cardType="gallery" />
                         </div>
-                    ) : (nameInput.current?.value === "" && idInput.current?.value === "")
-                        ? <p className="text-center my-5">Awaiting Input...</p>
-                        : <p className="text-center my-5">No Results Found...</p>
+                    ) :
+                        <p className="text-center my-5">No Results Found...</p>
                 }
             </div>
         </>

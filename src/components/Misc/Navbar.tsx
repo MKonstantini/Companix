@@ -40,19 +40,13 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                             {/* Middle Btns */}
                             <ul className="navbar-nav m-auto mb-2 mb-lg-0">
                                 <li className="nav-item navHover">
-                                    <NavLink className="nav-link active" aria-current="page" to="/home">Home</NavLink>
-                                </li>
-
-                                <li className="nav-item">_____</li>
-
-                                <li className="nav-item navHover">
                                     <NavLink className="nav-link" to="/businesscards">Business Cards</NavLink>
                                 </li>
 
                                 <li className="nav-item">_____</li>
 
                                 <li className="nav-item navHover">
-                                    <NavLink className="nav-link" to="/mycompany">My Company</NavLink>
+                                    <NavLink className="nav-link active" aria-current="page" to="/profile">Profile</NavLink>
                                 </li>
                             </ul>
 

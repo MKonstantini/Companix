@@ -75,7 +75,10 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
                 occupation: values.occupation,
                 company: values.company,
                 education: values.education,
-                languages: values.languages
+                languages: values.languages,
+                savedCards: [],
+                likedCards: [],
+                companyCards: []
             };
 
             sessionStorage.setItem("userInfo", JSON.stringify(newUser))

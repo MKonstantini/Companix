@@ -18,7 +18,15 @@
       "occupation": "Web Developer",
       "company": "",
       "education": "Fullstack Development",
-      "languages": "English Hebrew German"
+      "languages": "English Hebrew German",
+      "savedCards": [
+        "102",
+        "103"
+      ],
+      "likedCards": [
+        "102"
+      ],
+      "companyCards": []
     },
     {
       "id": 102,
@@ -81,7 +89,8 @@
       ],
       "likedCards": [
         "102"
-      ]
+      ],
+      "companyCards": []
     }
   ]
 }

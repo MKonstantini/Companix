@@ -30,7 +30,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                 .then((data) => {
                     if (data.length > 0) {
                         alertSuccess(`Welcome ${values.email}!`)
-                        navigate('/home')
+                        navigate('/businesscards')
 
                         setIsLoggedIn(true)
                         setUserInfo(data[0])
@@ -103,7 +103,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                             .then((data) => {
                                 if (data.length > 0) {
                                     alertSuccess(`Welcome lucya@gmail.com!`)
-                                    navigate('/home')
+                                    navigate('/businesscards')
 
                                     sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
                                     sessionStorage.setItem("isLoggedIn", "true")
@@ -121,7 +121,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                             .then((data) => {
                                 if (data.length > 0) {
                                     alertSuccess(`Welcome lucasg@gmail.com !`)
-                                    navigate('/home')
+                                    navigate('/businesscards')
 
                                     sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
                                     sessionStorage.setItem("isLoggedIn", "true")
@@ -139,7 +139,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                             .then((data) => {
                                 if (data.length > 0) {
                                     alertSuccess(`Welcome matanko35@gmail.com!`)
-                                    navigate('/home')
+                                    navigate('/businesscards')
 
                                     sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
                                     sessionStorage.setItem("isLoggedIn", "true")

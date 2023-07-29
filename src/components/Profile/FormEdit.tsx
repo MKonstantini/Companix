@@ -74,7 +74,10 @@ const FormEdit: FunctionComponent<FormEditProps> = () => {
                 occupation: values.occupation,
                 company: values.company,
                 education: values.education,
-                languages: values.languages
+                languages: values.languages,
+                savedCards: userInfo.savedCards,
+                likedCards: userInfo.likedCards,
+                companyCards: userInfo.companyCards
             };
 
             sessionStorage.setItem("userInfo", JSON.stringify(newUser))

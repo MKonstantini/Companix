@@ -1,8 +1,9 @@
 import { ChangeEvent, FunctionComponent, useContext, useState } from "react";
-import Card from "../Card/Card";
-import { UserContext } from "../../App";
-import Search from "./Search";
 import CompanyCards from "../CompanyCards/CompanyCards";
+import { UserContext } from "../../App";
+import Card from "../Card/Card";
+import Search from "./Search";
+import { alertError } from "../../services/alertFunctions";
 
 interface BusinessCardsProps {
 
@@ -58,12 +59,15 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                 )
             case "companyCards":
                 return (
-                    <CompanyCards />
+                    userInfo.accountType !== "Business" ?
+                        <div className="my-5">
+                            <p className="text-center">Sorry! This feature is for business accounts only.</p>
+                        </div>
+                        :
+                        <CompanyCards />
                 )
-
         }
     }
-
 
     return (
         <>
@@ -97,7 +101,7 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                     </div>
 
                     <div>
-                        <input type="radio" className="btn-check" id="radioCompanyCards" name="radioFilter" value="companyCards" checked={isFilterSelected('companyCards')} onChange={handleRadioChange} />
+                        <input disabled={false} type="radio" className="btn-check" id="radioCompanyCards" name="radioFilter" value="companyCards" checked={isFilterSelected('companyCards')} onChange={handleRadioChange} />
                         <label htmlFor="radioCompanyCards" className="btn btn-outline-secondary rounded-5 me-2">
                             Company Cards
                         </label>

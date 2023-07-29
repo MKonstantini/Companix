@@ -26,7 +26,6 @@ const EditCard: FunctionComponent<EditCardProps> = () => {
                 {/* Form */}
                 <p className="mb-2">- Info -</p>
                 <FormEdit />
-
             </div >
         </>
     );

@@ -1,3 +1,5 @@
+import CCard from "./CCard"
+
 export default interface User {
     id: number,
     accountType: string,
@@ -17,4 +19,7 @@ export default interface User {
     company?: string,
     education?: string,
     languages?: string,
+    savedCards: string[],
+    likedCards: string[],
+    companyCards: CCard[]
 }
