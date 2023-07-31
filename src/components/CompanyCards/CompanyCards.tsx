@@ -62,7 +62,7 @@ const CompanyCards: FunctionComponent<CompanyCardsProps> = () => {
             }
 
             {/* Add Card */}
-            <div className="col-6">
+            <div className="col-md-6">
                 <div className="bg-body myBorder boxShadow p-4 ms-1 d-flex flex-column align-items-center justify-content-center" style={{ maxWidth: "38rem", minHeight: "20rem" }}>
                     {
                         isEditing ?
@@ -140,7 +140,7 @@ const CompanyCards: FunctionComponent<CompanyCardsProps> = () => {
                             :
                             <div className="d-flex flex-column align-items-center justify-content-center">
                                 <i className="fa-solid fa-circle-plus text-center mb-4" style={{ fontSize: "3rem", color: "#6C757D" }} onClick={() => setIsEditing(true)}></i>
-                                <p>Create A New Company Card!</p>
+                                <p className="text-center">Create A New Company Card!</p>
                             </div>
                     }
                 </div>

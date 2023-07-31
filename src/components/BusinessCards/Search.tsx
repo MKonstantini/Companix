@@ -53,24 +53,24 @@ const Search: FunctionComponent<SearchProps> = () => {
 
     return (
         <>
-            <form className="row container text-center">
-                <div className="col-6">
-                    <label htmlFor="searchName" className="me-5">By Name</label>
+            <form className="container text-center d-flex flex-wrap">
+                <div className="col-12 col-sm-6">
+                    <label htmlFor="searchName" className="me-2 me-sm-5">By Name</label>
                     <input ref={nameInput} type="text" id="searchName"
                         onClick={() => resetInputField(idInput.current)}
                         onChange={inputHandlerName} />
                 </div>
-                <div className="col-6">
-                    <label htmlFor="searchId" className="me-5">By ID</label>
-                    <input ref={idInput} type="text" id="searchId" onClick={() => resetInputField(nameInput.current)}
+                <div className="col-12 col-sm-6">
+                    <label htmlFor="searchId" className="me-2 me-sm-5">By ID</label>
+                    <input className="" ref={idInput} type="text" id="searchId" onClick={() => resetInputField(nameInput.current)}
                         onChange={inputHandlerId} />
                 </div>
-                <hr className="mt-3" />
             </form>
+            <hr className="mt-3" />
             <div className="row mt-2">
                 {
                     foundCardsId.length ? foundCardsId.map((id) =>
-                        <div key={id} className="col-6">
+                        <div key={id} className="col-xxl-6">
                             <Card userId={String(id)} cardType="gallery" />
                         </div>
                     ) :

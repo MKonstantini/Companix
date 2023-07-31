@@ -18,9 +18,9 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
             {
                 userInfo &&
                 <>
-                    <div className="bg-body myBorder boxShadow p-4" style={{ maxWidth: "38rem", height: "21.5rem" }}>
+                    <div className="bg-body myBorder boxShadow p-4 text-center text-sm-start" style={{ maxWidth: "40rem" }}>
                         <div className="row">
-                            <div className="col-6">
+                            <div className="col-sm-6">
                                 <p>Name : {userInfo.firstName} {userInfo.lastName}</p>
                                 <p>Email : {userInfo.email}</p>
                                 <hr className="mx-0" />
@@ -42,7 +42,7 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
                                 }
                             </div>
                             {/* img */}
-                            <div className="col-6">
+                            <div className="col-6 mx-auto">
                                 <img src={userInfo.imageUrl} alt="profile" style={{ width: "100%" }} className="rounded-5 myBorder" />
                             </div>
                         </div>
@@ -56,7 +56,7 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
                     {/* Card Btns */}
                     {
                         cardType === "gallery" ? (
-                            <div className="mt-3 mb-3">
+                            <div className="mt-3 mb-3 d-flex justify-content-center justify-content-sm-start">
                                 <Link to={`/viewcard/${userInfo.id}`} className="btn btn-outline-secondary rounded-5 me-2">
                                     <i className="fa-solid fa-magnifying-glass me-2"></i>
                                     View
@@ -67,7 +67,7 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
                                 <RemoveBtn cardId={userId} />
                             </div>
                         ) : (
-                            < div className="mt-3">
+                            < div className="mt-3 d-flex justify-content-center justify-content-sm-start">
                                 <Link to={`/viewcard/${userInfo.id}`} className="btn btn-outline-secondary rounded-5 me-2">
                                     <i className="fa-solid fa-magnifying-glass me-2"></i>
                                     View

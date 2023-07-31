@@ -13,6 +13,7 @@ import Profile from './components/Profile/Profile';
 import ViewCard from './components/Profile/ViewCard';
 import EditCard from './components/Profile/EditCard';
 import About from './components/Profile/About';
+import Footer from './components/Misc/Footer';
 
 
 export const LoginContext = createContext<any>(false)
@@ -41,7 +42,7 @@ function App() {
 
               <Route path='*' element={<NoPage />} />
             </Routes>
-
+            <Footer />
           </BrowserRouter>
         </UserContext.Provider>
       </LoginContext.Provider>

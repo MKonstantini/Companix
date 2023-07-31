@@ -3,7 +3,6 @@ import CompanyCards from "../CompanyCards/CompanyCards";
 import { UserContext } from "../../App";
 import Card from "../Card/Card";
 import Search from "./Search";
-import { alertError } from "../../services/alertFunctions";
 
 interface BusinessCardsProps {
 
@@ -27,7 +26,7 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                         <div className="row mt-3 ms-1">
                             {
                                 userInfo.savedCards.map((id: string) =>
-                                    <div key={id} className="col-6">
+                                    <div key={id} className="col-xxl-6">
                                         <Card userId={id} cardType="gallery" />
                                     </div>
                                 )
@@ -43,7 +42,7 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                         <div className="row mt-3 ms-1">
                             {
                                 userInfo.likedCards.map((id: string) =>
-                                    <div key={id} className="col-6">
+                                    <div key={id} className="col-xxl-6">
                                         <Card userId={id} cardType="gallery" />
                                     </div>
                                 )
@@ -73,17 +72,17 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
         <>
             <div className="container mt-5">
                 {/* Title */}
-                <div>
+                <div className="text-center text-md-start">
                     <p className="m-0">- Business Cards -</p>
                     <h1 className="display-6 m-0"><b>Your Card</b></h1>
                     <h1 className="display-6 ms-1"><b>Collection</b></h1>
                 </div>
 
                 {/* Filters */}
-                <form className="mt-5 d-flex justify-content-between">
-                    <div className="d-flex flex-column flex-sm-row">
+                <form className="mt-5 d-flex justify-content-center justify-content-md-between flex-wrap">
+                    <div className="d-flex">
                         <input type="radio" className="btn-check" id="radioAll" name="radioFilter" value="all" checked={isFilterSelected('all')} onChange={handleRadioChange} />
-                        <label htmlFor="radioAll" className="btn btn-outline-secondary rounded-5 me-2 text-start ps-3">
+                        <label htmlFor="radioAll" className="btn btn-outline-secondary rounded-5 px-3 me-2">
                             <i className="fa-solid fa-list me-2"></i>
                             All
                         </label>
@@ -102,7 +101,7 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
 
                     <div>
                         <input disabled={false} type="radio" className="btn-check" id="radioCompanyCards" name="radioFilter" value="companyCards" checked={isFilterSelected('companyCards')} onChange={handleRadioChange} />
-                        <label htmlFor="radioCompanyCards" className="btn btn-outline-secondary rounded-5 me-2">
+                        <label htmlFor="radioCompanyCards" className="btn btn-outline-secondary rounded-5 me-2 mt-sm-0 mt-3">
                             Company Cards
                         </label>
                     </div>

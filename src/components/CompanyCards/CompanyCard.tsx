@@ -46,7 +46,7 @@ const CompanyCard: FunctionComponent<CompanyCardProps> = ({ cardNum }) => {
     })
 
     return (
-        <div className="col-6">
+        <div className="col-md-6">
             {/* Card */}
             <div className="bg-body myBorder boxShadow p-4 ms-1 d-flex flex-column align-items-center justify-content-center" style={{ maxWidth: "38rem", minHeight: "20rem" }}>
                 {
@@ -136,7 +136,7 @@ const CompanyCard: FunctionComponent<CompanyCardProps> = ({ cardNum }) => {
             </div>
 
             {/* Card Buttons */}
-            <div className="mt-3 mb-3">
+            <div className="mt-3 mb-3 d-flex justify-content-center justify-content-md-start">
                 {/* Edit */}
                 <button className="btn btn-outline-secondary rounded-5 me-2" onClick={() => { setIsEditing(!isEditing) }}>
                     <i className="me-2 fa-solid fa-pen-to-square"></i>
