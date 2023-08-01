@@ -18,7 +18,7 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
             {
                 userInfo &&
                 <>
-                    <div className="bg-body myBorder boxShadow p-4 text-center text-sm-start" style={{ maxWidth: "40rem" }}>
+                    <div className="bg-body myBorder boxShadow p-4 text-center text-md-start" style={{ maxWidth: "40rem" }}>
                         <div className="row">
                             <div className="col-sm-6">
                                 <p>Name : {userInfo.firstName} {userInfo.lastName}</p>
@@ -56,7 +56,7 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
                     {/* Card Btns */}
                     {
                         cardType === "gallery" ? (
-                            <div className="mt-3 mb-3 d-flex justify-content-center justify-content-sm-start">
+                            <div className="mt-3 mb-3 d-flex justify-content-center justify-content-md-start">
                                 <Link to={`/viewcard/${userInfo.id}`} className="btn btn-outline-secondary rounded-5 me-2">
                                     <i className="fa-solid fa-magnifying-glass me-2"></i>
                                     View
@@ -67,7 +67,7 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
                                 <RemoveBtn cardId={userId} />
                             </div>
                         ) : (
-                            < div className="mt-3 d-flex justify-content-center justify-content-sm-start">
+                            < div className="mt-3 d-flex justify-content-center justify-content-md-start">
                                 <Link to={`/viewcard/${userInfo.id}`} className="btn btn-outline-secondary rounded-5 me-2">
                                     <i className="fa-solid fa-magnifying-glass me-2"></i>
                                     View

@@ -26,7 +26,7 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                         <div className="row mt-3 ms-1">
                             {
                                 userInfo.savedCards.map((id: string) =>
-                                    <div key={id} className="col-xxl-6">
+                                    <div key={id} className="col-xxl-6 d-flex flex-column align-items-xxl-start align-items-center">
                                         <Card userId={id} cardType="gallery" />
                                     </div>
                                 )
