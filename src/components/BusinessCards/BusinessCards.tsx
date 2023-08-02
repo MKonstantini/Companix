@@ -26,7 +26,7 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                         <div className="row mt-3 ms-1">
                             {
                                 userInfo.savedCards.map((id: string) =>
-                                    <div key={id} className="col-xxl-6 d-flex flex-column align-items-xxl-start align-items-center">
+                                    <div key={id} className="col-xxl-6 d-flex flex-column align-items-xxl-start align-items-center mx-0">
                                         <Card userId={id} cardType="gallery" />
                                     </div>
                                 )
@@ -59,7 +59,8 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
             case "companyCards":
                 return (
                     userInfo.accountType !== "Business" ?
-                        <div className="my-5">
+                        <div className="my-5 d-flex flex-column aling-items-center">
+                            <i className="fa-solid fa-lock text-center mb-3" style={{ fontSize: "3.3rem", color: "lightgrey" }}></i>
                             <p className="text-center">Sorry! This feature is for business accounts only.</p>
                         </div>
                         :
@@ -94,8 +95,10 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                         </label>
 
                         <input type="radio" className="btn-check" id="radioSearch" name="radioFilter" value="search" checked={isFilterSelected('search')} onChange={handleRadioChange} />
-                        <label htmlFor="radioSearch" className="btn btn-outline-secondary rounded-5 me-2">
-                            Search...
+                        <label htmlFor="radioSearch" className="btn btn-outline-secondary rounded-5 me-2 d-flex align-items-center">
+                            <span>
+                                Search...
+                            </span>
                         </label>
                     </div>
 

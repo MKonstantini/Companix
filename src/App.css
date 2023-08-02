@@ -5,7 +5,7 @@
 body {
   background-color: rgb(247, 247, 247);
   /* background-color: rgb(83, 83, 83); */
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 * {
   font-family: 'General Sans', sans-serif;

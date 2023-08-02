@@ -8,7 +8,7 @@
 
 import { FunctionComponent, useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { LoginContext } from "../../App";
+import { LoginContext, UserContext } from "../../App";
 
 interface NavbarProps {
 
@@ -16,6 +16,7 @@ interface NavbarProps {
 
 const Navbar: FunctionComponent<NavbarProps> = () => {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
+    const [userInfo, setUserInfo] = useContext(UserContext)
     const navigate = useNavigate()
 
     sessionStorage.getItem("isLoggedIn") && setIsLoggedIn(true)
@@ -25,8 +26,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
             {
                 isLoggedIn &&
                 <div><nav className="navbar py-3 navbar-expand-md bg-body-tertiary">
-                    <div className="container-fluid">
-
+                    <div className="container-fluid text-center">
                         {/* Brand */}
                         <Link className="navbar-brand fontGambetta" to="/home">COMPANIX</Link>
 
@@ -35,7 +35,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                             <span className="navbar-toggler-icon"></span>
                         </button>
 
-                        {/* Content */}
+                        {/* Mid Btns */}
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             {/* Middle Btns */}
                             <ul className="navbar-nav m-auto mb-2 mb-lg-0">
@@ -43,7 +43,13 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                                     <NavLink className="nav-link" to="/businesscards">Business Cards</NavLink>
                                 </li>
 
-                                <li className="nav-item">_____</li>
+                                <li className="nav-item d-none d-md-block">_____</li>
+
+                                <li className="nav-item navHover">
+                                    <NavLink className="nav-link" to="/businesscards">Explore</NavLink>
+                                </li>
+
+                                <li className="nav-item d-none d-md-block">_____</li>
 
                                 <li className="nav-item navHover">
                                     <NavLink className="nav-link active" aria-current="page" to="/profile">Profile</NavLink>
@@ -51,13 +57,27 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                             </ul>
 
                             {/* Rightside Btns */}
-                            <div>
-                                <button className="btn btn-outline-secondary me-2">Mode</button>
-                                <button className="btn btn-outline-secondary" onClick={() => {
-                                    navigate("/")
-                                    setIsLoggedIn("false")
-                                }}
-                                >Logout</button>
+                            <div className="d-flex flex-column flex-md-row align-items-center">
+                                <button className="btn btn-outline-secondary me-2" style={{ width: "4.8rem" }}>Mode</button>
+
+                                <li className="nav-item dropdown d-none d-md-block">
+                                    <li className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" nav-link dropdown-toggle>
+                                        {
+                                            userInfo.imageUrl
+                                                ? <img src={userInfo.imageUrl} alt="" className="rounded-5 m-0 p-0 myBorder" style={{ width: "2.3rem" }} />
+                                                : <i className="fa-solid fa-circle-user rounded-5 m-0 p-0 myBorder" style={{ fontSize: "5rem" }}></i>
+                                        }
+                                    </li>
+                                    <ul className="dropdown-menu p-3 pb-4" style={{ left: "-6.5rem", top: "2.5rem" }}>
+                                        <Link to={"profile"} className="btn mb-2" style={{ marginLeft: "1.7rem" }}>Profile</Link>
+                                        <li className="btn btn-outline-secondary" style={{ marginLeft: "1.7rem" }} onClick={() => {
+                                            navigate("/")
+                                            setIsLoggedIn("false")
+                                        }}>Logout</li>
+                                    </ul>
+                                </li>
+
+                                <button className="btn btn-outline-secondary d-inline-block me-2 mt-3 d-md-none" style={{ width: "4.8rem" }}>Logout</button>
                             </div>
                         </div>
                     </div>

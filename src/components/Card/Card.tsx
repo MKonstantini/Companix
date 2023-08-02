@@ -46,7 +46,7 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
                                 <img src={userInfo.imageUrl} alt="profile" style={{ width: "100%" }} className="rounded-5 myBorder" />
                             </div>
                         </div>
-                        <div className="d-flex justify-content-between mt-2">
+                        <div className="d-flex flex-column flex-sm-row justify-content-sm-between mt-2 flex-wrap ">
                             <i><p className="m-0">Account Type: {userInfo.accountType}</p></i>
                             <i><p className="m-0" >Account ID: {userInfo.id}</p></i>
                         </div>
