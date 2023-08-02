@@ -1,6 +1,6 @@
 import { ChangeEvent, FunctionComponent, useContext, useState } from "react";
 import CompanyCards from "../CompanyCards/CompanyCards";
-import { UserContext } from "../../App";
+import { SiteTheme, UserContext } from "../../App";
 import Card from "../Card/Card";
 import Search from "./Search";
 
@@ -16,6 +16,7 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
 
     // Get Cards Info
     const [userInfo, setUserInfo] = useContext(UserContext)
+    const theme = useContext(SiteTheme)
 
     // Display Filter
     const displaySelectedRadio = (selectedFilter: string) => {

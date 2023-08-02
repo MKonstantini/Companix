@@ -3,8 +3,6 @@
 
 /* Meta */
 body {
-  background-color: rgb(247, 247, 247);
-  /* background-color: rgb(83, 83, 83); */
   overflow-x: hidden;
 }
 * {
@@ -53,11 +51,6 @@ hr {
   height: 0.15rem;
   width: 100vw;
   background: linear-gradient(90deg,grey, rgb(78, 53, 53), grey)
-}
-
-.navHover:hover  {
-  background-color: #fff;
-  border-radius: 5rem;
 }
 
 .boxShadow {

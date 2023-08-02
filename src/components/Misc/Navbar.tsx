@@ -8,15 +8,17 @@
 
 import { FunctionComponent, useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { LoginContext, UserContext } from "../../App";
+import { LoginContext, SiteTheme, UserContext } from "../../App";
 
 interface NavbarProps {
-
+    darkMode: boolean;
+    setDarkMode: Function;
 }
 
-const Navbar: FunctionComponent<NavbarProps> = () => {
+const Navbar: FunctionComponent<NavbarProps> = ({ darkMode, setDarkMode }) => {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
     const [userInfo, setUserInfo] = useContext(UserContext)
+    const theme = useContext(SiteTheme)
     const navigate = useNavigate()
 
     sessionStorage.getItem("isLoggedIn") && setIsLoggedIn(true)
@@ -25,42 +27,52 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
         <>
             {
                 isLoggedIn &&
-                <div><nav className="navbar py-3 navbar-expand-md bg-body-tertiary">
+                <div><nav className="navbar py-3 navbar-expand-md" style={{ color: theme.color, background: theme.background1 }}>
                     <div className="container-fluid text-center">
                         {/* Brand */}
-                        <Link className="navbar-brand fontGambetta" to="/home">COMPANIX</Link>
+                        <Link className="navbar-brand fontGambetta" to="/home" style={{ color: theme.color }}>COMPANIX</Link>
 
                         {/* Collapse Btn */}
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
 
-                        {/* Mid Btns */}
+                        {/* Nav Extended */}
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             {/* Middle Btns */}
                             <ul className="navbar-nav m-auto mb-2 mb-lg-0">
                                 <li className="nav-item navHover">
-                                    <NavLink className="nav-link" to="/businesscards">Business Cards</NavLink>
+                                    <NavLink className="nav-link" to="/businesscards" style={{ color: theme.color }}>Business Cards</NavLink>
                                 </li>
 
                                 <li className="nav-item d-none d-md-block">_____</li>
 
                                 <li className="nav-item navHover">
-                                    <NavLink className="nav-link" to="/businesscards">Explore</NavLink>
+                                    <NavLink className="nav-link" to="/businesscards" style={{ color: theme.color }}>Explore</NavLink>
                                 </li>
 
                                 <li className="nav-item d-none d-md-block">_____</li>
 
                                 <li className="nav-item navHover">
-                                    <NavLink className="nav-link active" aria-current="page" to="/profile">Profile</NavLink>
+                                    <NavLink className="nav-link active" aria-current="page" to="/profile" style={{ color: theme.color }}>Profile</NavLink>
                                 </li>
                             </ul>
 
                             {/* Rightside Btns */}
                             <div className="d-flex flex-column flex-md-row align-items-center">
-                                <button className="btn btn-outline-secondary me-2" style={{ width: "4.8rem" }}>Mode</button>
+                                {/* Theme Changer */}
+                                <li className="me-2 nav-item" style={{ listStyle: "none", cursor: "pointer" }} onClick={() => {
+                                    setDarkMode(!darkMode)
+                                }}>
+                                    <i className="fa-solid fa-circle-half-stroke me-2"></i>
+                                    {darkMode
+                                        ? <span>Light Mode</span>
+                                        : <span>Dark Mode</span>
+                                    }
 
-                                <li className="nav-item dropdown d-none d-md-block">
+                                </li>
+                                {/* Profile Icon */}
+                                <li className="nav-item dropdown d-none d-md-block ms-3">
                                     <li className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" nav-link dropdown-toggle>
                                         {
                                             userInfo.imageUrl
@@ -68,8 +80,9 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                                                 : <i className="fa-solid fa-circle-user rounded-5 m-0 p-0 myBorder" style={{ fontSize: "5rem" }}></i>
                                         }
                                     </li>
-                                    <ul className="dropdown-menu p-3 pb-4" style={{ left: "-6.5rem", top: "2.5rem" }}>
-                                        <Link to={"profile"} className="btn mb-2" style={{ marginLeft: "1.7rem" }}>Profile</Link>
+                                    {/* Dropdown Menu */}
+                                    <ul className="dropdown-menu p-3 pb-4" style={{ left: "-6.5rem", top: "2.5rem", borderBlockColor: "grey", color: theme.color, background: theme.background1 }}>
+                                        <Link to={"profile"} className="btn mb-2" style={{ marginLeft: "1.7rem", color: theme.color }}>Profile</Link>
                                         <li className="btn btn-outline-secondary" style={{ marginLeft: "1.7rem" }} onClick={() => {
                                             navigate("/")
                                             setIsLoggedIn("false")
@@ -77,6 +90,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                                     </ul>
                                 </li>
 
+                                {/* Logout For Collapsed */}
                                 <button className="btn btn-outline-secondary d-inline-block me-2 mt-3 d-md-none" style={{ width: "4.8rem" }}>Logout</button>
                             </div>
                         </div>
