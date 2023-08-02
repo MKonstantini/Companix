@@ -27,7 +27,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({ darkMode, setDarkMode }) => {
         <>
             {
                 isLoggedIn &&
-                <div><nav className="navbar py-3 navbar-expand-md" style={{ color: theme.color, background: theme.background1 }}>
+                <div><nav className="navbar py-3 navbar-expand-md" style={{ color: theme.color, background: theme.background }}>
                     <div className="container-fluid text-center">
                         {/* Brand */}
                         <Link className="navbar-brand fontGambetta" to="/home" style={{ color: theme.color }}>COMPANIX</Link>
@@ -48,13 +48,13 @@ const Navbar: FunctionComponent<NavbarProps> = ({ darkMode, setDarkMode }) => {
                                 <li className="nav-item d-none d-md-block">_____</li>
 
                                 <li className="nav-item navHover">
-                                    <NavLink className="nav-link" to="/businesscards" style={{ color: theme.color }}>Explore</NavLink>
+                                    <NavLink className="nav-link" to="/businesscards" style={{ color: theme.color }}>Explore Users</NavLink>
                                 </li>
 
                                 <li className="nav-item d-none d-md-block">_____</li>
 
                                 <li className="nav-item navHover">
-                                    <NavLink className="nav-link active" aria-current="page" to="/profile" style={{ color: theme.color }}>Profile</NavLink>
+                                    <NavLink className="nav-link active" aria-current="page" to="/profile" style={{ color: theme.color }}>My Profile</NavLink>
                                 </li>
                             </ul>
 
@@ -81,9 +81,9 @@ const Navbar: FunctionComponent<NavbarProps> = ({ darkMode, setDarkMode }) => {
                                         }
                                     </li>
                                     {/* Dropdown Menu */}
-                                    <ul className="dropdown-menu p-3 pb-4" style={{ left: "-6.5rem", top: "2.5rem", borderBlockColor: "grey", color: theme.color, background: theme.background1 }}>
-                                        <Link to={"profile"} className="btn mb-2" style={{ marginLeft: "1.7rem", color: theme.color }}>Profile</Link>
-                                        <li className="btn btn-outline-secondary" style={{ marginLeft: "1.7rem" }} onClick={() => {
+                                    <ul className="dropdown-menu p-3 pb-4" style={{ left: "-6.5rem", top: "2.5rem", borderBlockColor: "grey", color: theme.color, background: theme.background }}>
+                                        <Link to={"profile"} className="btn mb-2" style={{ marginLeft: "1.1rem", color: theme.color }}>My Profile</Link>
+                                        <li className="btn btn-secondary" style={{ marginLeft: "1.7rem" }} onClick={() => {
                                             navigate("/")
                                             setIsLoggedIn("false")
                                         }}>Logout</li>
@@ -91,7 +91,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({ darkMode, setDarkMode }) => {
                                 </li>
 
                                 {/* Logout For Collapsed */}
-                                <button className="btn btn-outline-secondary d-inline-block me-2 mt-3 d-md-none" style={{ width: "4.8rem" }}>Logout</button>
+                                <button className="btn btn-secondary d-inline-block me-2 mt-3 d-md-none" style={{ width: "4.8rem" }}>Logout</button>
                             </div>
                         </div>
                     </div>

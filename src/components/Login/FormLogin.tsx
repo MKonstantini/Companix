@@ -95,9 +95,10 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                 <button type="submit" disabled={!formik.isValid || !formik.dirty} className="btn btn-outline-secondary mt-2 mb-3" style={{ width: "8rem" }}>Login</button>
 
                 {/* Demo users */}
-                <p className="mt-2 mb-0 text-center">Demo Accounts:</p>
-                <div className="mb-3 text-center">
-                    <button className="btn" onClick={() => {
+                <p className="my-2 mb-0 text-center" style={{ color: "black" }}>Demo Accounts:</p>
+                {/* Buttons */}
+                <div className="mt-2 mb-3 text-center">
+                    <button className="p-0" onClick={() => {
                         getUserByEmail("lucya@gmail.com", "password1")
                             .then((res: any) => res.data)
                             .then((data) => {
@@ -113,9 +114,9 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                                 else alertError("Wrong email or password!")
                             })
                             .catch((err) => console.log(err))
-                    }}><small>Regular</small></button>
+                    }}><p className="m-0" style={{ width: "5rem", height: "1.8rem" }}>Regular</p></button>
 
-                    <button className="btn" onClick={() => {
+                    <button className="p-0" onClick={() => {
                         getUserByEmail("lucasg@gmail.com", "password1")
                             .then((res: any) => res.data)
                             .then((data) => {
@@ -131,9 +132,9 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                                 else alertError("Wrong email or password!")
                             })
                             .catch((err) => console.log(err))
-                    }}><small>Business</small></button>
+                    }}><p className="m-0" style={{ width: "5rem", height: "1.8rem" }}>Business</p></button>
 
-                    <button className="btn" onClick={() => {
+                    <button className="p-0" onClick={() => {
                         getUserByEmail("matanko35@gmail.com", "password1")
                             .then((res: any) => res.data)
                             .then((data) => {
@@ -149,7 +150,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                                 else alertError("Wrong email or password!")
                             })
                             .catch((err) => console.log(err))
-                    }}><small>Admin</small></button>
+                    }}><p className="m-0" style={{ width: "5rem", height: "1.8rem" }}>Admin</p></button>
                 </div>
             </form>
         </>

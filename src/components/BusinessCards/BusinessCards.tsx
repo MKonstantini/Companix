@@ -16,7 +16,6 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
 
     // Get Cards Info
     const [userInfo, setUserInfo] = useContext(UserContext)
-    const theme = useContext(SiteTheme)
 
     // Display Filter
     const displaySelectedRadio = (selectedFilter: string) => {

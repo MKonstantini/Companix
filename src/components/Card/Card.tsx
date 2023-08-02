@@ -1,8 +1,9 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { useFetch } from "../../services/dbFunctions";
 import { Link } from "react-router-dom";
 import LikeBtn from "./LikeBtn";
 import RemoveBtn from "./RemoveBtn";
+import { SiteTheme } from "../../App";
 
 interface CardProps {
     userId: string
@@ -10,7 +11,7 @@ interface CardProps {
 }
 
 const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
-
+    const theme = useContext(SiteTheme)
     const userInfo = useFetch(userId)
 
     return (

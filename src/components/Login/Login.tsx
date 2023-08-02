@@ -54,7 +54,7 @@ const Login: FunctionComponent<LoginProps> = () => {
                         <i className="fontGambetta" style={{ fontWeight: 601 }}>It's Just Good Business.</i>
                     </div>
                     {/* Menu */}
-                    <div className="myBorder px-4 pt-1 mx-4 mb-4">
+                    <div className="myBorder px-4 pt-1 mx-4 mb-4 bg-light" >
                         {/* Menu Btns */}
                         <div className="row mx-2 mt-2">
                             <button className="col-6" ref={loginBtn} onClick={clickLogin} style={{ fontWeight: 'bold' }}>

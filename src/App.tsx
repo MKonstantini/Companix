@@ -22,14 +22,12 @@ export const UserContext = createContext<any>({})
 // light/dark mode context
 const themes = {
   light: {
-    color: "black",
-    background1: "white",
-    background2: "rgb(247, 247, 247)"
+    color: "grey",
+    background: "white",
   },
   dark: {
-    color: "white",
-    background1: "black",
-    background2: "black"
+    color: "grey",
+    background: "black",
   }
 }
 export const SiteTheme = createContext<any>(themes.light)
@@ -47,7 +45,6 @@ function App() {
       : setHtmlColor("rgb(244,244,244)")
     console.log(darkMode)
   }, [darkMode])
-
 
   return (
     <div className="App" style={{ background: htmlColor as string, color: "grey" }}>
