@@ -4,11 +4,14 @@ import FormRegister from "./FormRegister";
 import { LoginContext } from "../../App";
 
 interface LoginProps {
-
+    setDarkMode: Function
 }
 
-const Login: FunctionComponent<LoginProps> = () => {
+const Login: FunctionComponent<LoginProps> = ({ setDarkMode }) => {
     const [isLoggedIn, setIsLoggedIn] = useContext(LoginContext)
+
+    // Reset Theme
+    setDarkMode(false)
 
     //Reset Login Session
     sessionStorage.clear()
@@ -49,9 +52,10 @@ const Login: FunctionComponent<LoginProps> = () => {
 
                 <div className="col-sm-8 col-md-6 d-flex flex-column justify-content-center align-items-center">
                     {/* Title */}
-                    <div className="my-5 d-flex flex-column align-items-center">
-                        <h1 className="fontGambetta" style={{ fontWeight: 700 }}>COMPANIX</h1>
-                        <i className="fontGambetta" style={{ fontWeight: 601 }}>It's Just Good Business.</i>
+                    <div className="my-5 d-flex flex-column align-items-center z-1 position-relative">
+                        <div className="loginLogo"></div>
+                        <h1 className="fontGambetta" style={{ fontWeight: 700, color: "black" }}>COMPANIX</h1>
+                        <i className="fontGambetta" style={{ fontWeight: 601, color: "black" }}>It's Just Good Business.</i>
                     </div>
                     {/* Menu */}
                     <div className="myBorder px-4 pt-1 mx-4 mb-4 bg-light" >

@@ -14,8 +14,9 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
     const isFilterSelected = (value: string) => selectedFilter === value
     const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => setSelectedFilter(e.currentTarget.value)
 
-    // Get Cards Info
+    // Get Context
     const [userInfo, setUserInfo] = useContext(UserContext)
+    const theme = useContext(SiteTheme)
 
     // Display Filter
     const displaySelectedRadio = (selectedFilter: string) => {
@@ -60,7 +61,7 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                 return (
                     userInfo.accountType !== "Business" ?
                         <div className="my-5 d-flex flex-column aling-items-center">
-                            <i className="fa-solid fa-lock text-center mb-3" style={{ fontSize: "3.3rem", color: "lightgrey" }}></i>
+                            <i className="fa-solid fa-lock text-center mb-3" style={{ fontSize: "3.3rem", color: theme.iconColor }}></i>
                             <p className="text-center">Sorry! This feature is for business accounts only.</p>
                         </div>
                         :

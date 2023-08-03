@@ -19,7 +19,7 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
             {
                 userInfo &&
                 <>
-                    <div className="bg-body myBorder boxShadow p-4 text-center text-md-start" style={{ maxWidth: "40rem" }}>
+                    <div className="myBorder boxShadow p-4 text-center text-md-start" style={{ maxWidth: "40rem", color: theme.color, background: theme.cardBackground }}>
                         <div className="row">
                             <div className="col-sm-6">
                                 <p>Name : {userInfo.firstName} {userInfo.lastName}</p>

@@ -48,7 +48,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({ darkMode, setDarkMode }) => {
                                 <li className="nav-item d-none d-md-block">_____</li>
 
                                 <li className="nav-item navHover">
-                                    <NavLink className="nav-link" to="/businesscards" style={{ color: theme.color }}>Explore Users</NavLink>
+                                    <NavLink className="nav-link" to="/exploreusers" style={{ color: theme.color }}>Explore Users</NavLink>
                                 </li>
 
                                 <li className="nav-item d-none d-md-block">_____</li>

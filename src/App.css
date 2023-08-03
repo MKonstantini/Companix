@@ -42,6 +42,16 @@ hr {
   background-position: center;
   border-radius: 0 7rem 7rem 0;
 }
+.loginLogo{
+  background-image: url(../public/companix-noC.svg);
+  background-size: cover;
+  width: 12rem;
+  height: 12rem;
+  position: absolute;
+  top: -4.7rem;
+  z-index: 0;
+  opacity: 17%;
+}
 .myBorder{
   border: 0.1rem solid grey;
   border-radius: 1rem;
