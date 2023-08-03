@@ -14,6 +14,7 @@ import ViewCard from './components/Profile/ViewCard';
 import EditCard from './components/Profile/EditCard';
 import About from './components/Profile/About';
 import Footer from './components/Misc/Footer';
+import ExploreUsers from './components/BusinessCards/ExploreUsers';
 
 // login status and user info context
 export const LoginContext = createContext<any>(false)
@@ -66,7 +67,7 @@ function App() {
 
                 <Route path='/businesscards' element={<BusinessCards />} />
 
-                <Route path='/exploreusers' element={<BusinessCards />} />
+                <Route path='/exploreusers' element={<ExploreUsers />} />
 
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/viewcard/:id' element={<ViewCard />} />

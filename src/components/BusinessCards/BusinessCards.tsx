@@ -77,7 +77,7 @@ const BusinessCards: FunctionComponent<BusinessCardsProps> = () => {
                 <div className="text-center text-md-start">
                     <p className="m-0">- Business Cards -</p>
                     <h1 className="display-6 m-0"><b>Your Card</b></h1>
-                    <h1 className="display-6 ms-1"><b>Collection</b></h1>
+                    <h1 className="display-6"><b>Collection</b></h1>
                 </div>
 
                 {/* Filters */}

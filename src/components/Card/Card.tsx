@@ -51,7 +51,6 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
                             <i><p className="m-0">Account Type: {userInfo.accountType}</p></i>
                             <i><p className="m-0" >Account ID: {userInfo.id}</p></i>
                         </div>
-
                     </div>
 
                     {/* Card Btns */}
