@@ -58,7 +58,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
         }),
         onSubmit: (values, { resetForm }) => {
             const newUser: User = {
-                id: (Math.floor(Math.random() * 999 - 100) + 100),
+                id: (Math.floor(Math.random() * 999 - 108) + 108),
                 accountType: values.accountType,
                 firstName: values.firstName,
                 lastName: values.lastName,

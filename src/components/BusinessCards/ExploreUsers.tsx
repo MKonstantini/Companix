@@ -1,6 +1,6 @@
 import { FunctionComponent, useContext } from "react";
-import { SiteTheme, UserContext } from "../../App";
-import Card from "../Card/Card";
+import { UserContext } from "../../App";
+import FeaturingCard from "../Card/FeaturingCard";
 
 interface ExploreUsersProps {
 
@@ -8,7 +8,16 @@ interface ExploreUsersProps {
 
 const ExploreUsers: FunctionComponent<ExploreUsersProps> = () => {
     const [userInfo, setUserInfo] = useContext(UserContext)
-    const theme = useContext(SiteTheme)
+
+    const allIds = ["101", "102", "103", "104", "105", "106", "107"]
+    const displayedIds: string[] = []
+
+    allIds.forEach(id => {
+        if (userInfo.savedCards.includes(id) === false && id !== String(userInfo.id)) {
+            displayedIds.push(id);
+        }
+    });
+
     return (
         <div className="container mt-5">
             {/* Title */}
@@ -21,12 +30,24 @@ const ExploreUsers: FunctionComponent<ExploreUsersProps> = () => {
             {/* Featured Users */}
             <div className="mt-5">
                 <p className="mb-2 text-center text-sm-start">- Featured Users -</p>
-                <div>
 
-                </div>
-                <div>
-                    <Card userId={userInfo.id} cardType="personal" />
-                </div>
+                <hr className="mt-3 mb-3" />
+                {
+                    displayedIds.length > 0 ?
+                        <div className="row mt-3 ms-1">
+                            {
+                                displayedIds.map((id: string) =>
+                                    <div key={id} className="col-xxl-6 d-flex flex-column align-items-xxl-start align-items-center mx-0">
+                                        <FeaturingCard userId={id} />
+                                    </div>
+                                )
+                            }
+                        </div> :
+                        <div className="my-5">
+                            <p className="text-center">No Cards To Display!</p>
+                        </div>
+                }
+                <hr className="mt-3 mb-3" />
             </div>
         </div>
     );

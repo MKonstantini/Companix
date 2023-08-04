@@ -99,7 +99,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                 {/* Buttons */}
                 <div className="mt-2 mb-3 text-center">
                     <button className="p-0" onClick={() => {
-                        getUserByEmail("lucya@gmail.com", "password1")
+                        getUserByEmail("lucya@gmail.com", "password3")
                             .then((res: any) => res.data)
                             .then((data) => {
                                 if (data.length > 0) {
@@ -117,7 +117,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                     }}><p className="m-0" style={{ width: "5rem", height: "1.8rem" }}>Regular</p></button>
 
                     <button className="p-0" onClick={() => {
-                        getUserByEmail("lucasg@gmail.com", "password1")
+                        getUserByEmail("lucasg@gmail.com", "password2")
                             .then((res: any) => res.data)
                             .then((data) => {
                                 if (data.length > 0) {

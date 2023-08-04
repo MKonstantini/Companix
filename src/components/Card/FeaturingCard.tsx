@@ -1,16 +1,13 @@
 import { FunctionComponent, useContext } from "react";
 import { useFetch } from "../../services/dbFunctions";
-import { Link } from "react-router-dom";
-import LikeBtn from "./LikeBtn";
-import RemoveBtn from "./RemoveBtn";
 import { SiteTheme } from "../../App";
+import { Link } from "react-router-dom";
 
-interface CardProps {
+interface FeaturingCardProps {
     userId: string
-    cardType: string
 }
 
-const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
+const FeaturingCard: FunctionComponent<FeaturingCardProps> = ({ userId }) => {
     const theme = useContext(SiteTheme)
     const userInfo = useFetch(userId)
 
@@ -52,37 +49,24 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
                             <i><p className="m-0" >Account ID: {userInfo.id}</p></i>
                         </div>
                     </div>
-
                     {/* Card Btns */}
-                    {
-                        cardType === "gallery" ? (
-                            <div className="mt-3 mb-3 d-flex justify-content-center justify-content-md-start">
-                                <Link to={`/viewcard/${userInfo.id}`} className="btn btn-outline-secondary rounded-5 me-2">
-                                    <i className="fa-solid fa-magnifying-glass me-2"></i>
-                                    View
-                                </Link>
+                    <div className="mt-3 mb-3 d-flex justify-content-center justify-content-md-start">
+                        <Link to={`/viewcard/${userInfo.id}`} className="btn btn-outline-secondary rounded-5 me-2">
+                            <i className="fa-solid fa-magnifying-glass me-2"></i>
+                            View
+                        </Link>
 
-                                <LikeBtn cardId={userId} />
+                        <button className="btn btn-outline-secondary rounded-5 me-2" onClick={() => {
 
-                                <RemoveBtn cardId={userId} />
-                            </div>
-                        ) : (
-                            < div className="mt-3 d-flex justify-content-center justify-content-md-start">
-                                <Link to={`/viewcard/${userInfo.id}`} className="btn btn-outline-secondary rounded-5 me-2">
-                                    <i className="fa-solid fa-magnifying-glass me-2"></i>
-                                    View
-                                </Link>
-                                <Link to={"/editcard/user"} className="btn btn-outline-secondary rounded-5">
-                                    <i className="fa-solid fa-user-pen me-2"></i>
-                                    Edit
-                                </Link>
-                            </div>
-                        )
-                    }
+                        }}>
+                            <i className="fa-solid fa-plus me-2"></i>
+                            Add Card
+                        </button>
+                    </div>
                 </>
             }
         </>
     );
 }
 
-export default Card;
+export default FeaturingCard;
