@@ -1,8 +1,6 @@
 import { FunctionComponent, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../App";
-import { useFormik } from "formik";
-import FormRegister from "../Login/FormRegister";
 import FormEdit from "./FormEdit";
 
 interface EditCardProps {
@@ -10,9 +8,6 @@ interface EditCardProps {
 }
 
 const EditCard: FunctionComponent<EditCardProps> = () => {
-    const navigate = useNavigate()
-    const [userInfo, setUserInfo] = useContext(UserContext)
-
     return (
         <>
             <div className="container mt-5 text-center text-sm-start">

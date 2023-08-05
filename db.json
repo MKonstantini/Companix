@@ -48,9 +48,13 @@
       "education": "BA. Business",
       "languages": "Greek, English",
       "savedCards": [
-        "101"
+        "103",
+        "106",
+        "104"
       ],
-      "likedCards": [],
+      "likedCards": [
+        "106"
+      ],
       "companyCards": [
         {
           "id": 0,
@@ -84,7 +88,9 @@
         "101",
         "102"
       ],
-      "likedCards": [],
+      "likedCards": [
+        "102"
+      ],
       "companyCards": []
     },
     {

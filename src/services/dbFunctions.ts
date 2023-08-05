@@ -3,7 +3,6 @@ import User from "../interfaces/User";
 import { useEffect, useState } from "react";
 const dbUrl : string = `${process.env.REACT_APP_API}/users`;
 
-
 export function getAll() {
     return axios.get(dbUrl)
 }
@@ -46,10 +45,5 @@ export function patchSaved(userId: number, newValue: string ) {
 export function patchCompanyCard(userId: number, editedArray: object[]) {
     return axios.patch(`${dbUrl}/${userId}`, {"companyCards": editedArray})
 }
-
-
-// export function deleteUser(userId : number) {
-//     return axios.delete(`${dbUrl}/${userId}`)
-// }
 
 

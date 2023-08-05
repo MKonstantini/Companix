@@ -2,7 +2,7 @@ import { FunctionComponent, useContext } from "react";
 import { Field, FormikProvider, useFormik } from "formik";
 import * as yup from "yup"
 import User from "../../interfaces/User";
-import { addUser, putUser } from "../../services/dbFunctions";
+import { addUser } from "../../services/dbFunctions";
 import { alertSuccess } from "../../services/alertFunctions";
 import { useNavigate } from "react-router-dom";
 
@@ -86,7 +86,7 @@ const FormRegister: FunctionComponent<FormRegisterProps> = () => {
             sessionStorage.setItem("isLoggedIn", "true")
             setUserInfo(newUser)
             setIsLoggedIn(true)
-            navigate("/home")
+            navigate("/businesscards")
             addUser(newUser)
             resetForm()
         }

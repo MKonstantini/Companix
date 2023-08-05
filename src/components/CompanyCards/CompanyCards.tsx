@@ -1,6 +1,6 @@
 import { FunctionComponent, useContext, useEffect, useState } from "react";
 import CompanyCard from "./CompanyCard";
-import { UserContext } from "../../App";
+import { SiteTheme, UserContext } from "../../App";
 import CCard from "../../interfaces/CCard";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -13,6 +13,7 @@ interface CompanyCardsProps {
 const CompanyCards: FunctionComponent<CompanyCardsProps> = () => {
     const [userInfo, setUserInfo] = useContext(UserContext)
     const [isEditing, setIsEditing] = useState(false)
+    const theme = useContext(SiteTheme)
 
     useEffect(() => {
     }, [userInfo])
@@ -62,8 +63,8 @@ const CompanyCards: FunctionComponent<CompanyCardsProps> = () => {
             }
 
             {/* Add Card */}
-            <div className="col-md-6">
-                <div className="bg-body myBorder boxShadow p-4 ms-1 d-flex flex-column align-items-center justify-content-center" style={{ maxWidth: "38rem", minHeight: "20rem" }}>
+            <div className="col-lg-6">
+                <div className="myBorder boxShadow p-4 ms-1 d-flex flex-column align-items-center justify-content-center" style={{ maxWidth: "38rem", minHeight: "20rem", color: theme.color, background: theme.cardBackground }}>
                     {
                         isEditing ?
                             <form className="text-end" onSubmit={formik.handleSubmit}>
@@ -75,7 +76,9 @@ const CompanyCards: FunctionComponent<CompanyCardsProps> = () => {
                                         name="name"
                                         value={formik.values.name}
                                         onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur} />
+                                        onBlur={formik.handleBlur}
+                                        style={{ background: theme.cardBackground, color: theme.inputColor, border: "0.1rem solid grey" }}
+                                    />
                                     {
                                         formik.touched.name && formik.errors.name &&
                                         <p className="text-center m-0">{formik.errors.name as string}</p>
@@ -89,7 +92,9 @@ const CompanyCards: FunctionComponent<CompanyCardsProps> = () => {
                                         name="email"
                                         value={formik.values.email}
                                         onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur} />
+                                        onBlur={formik.handleBlur}
+                                        style={{ background: theme.cardBackground, color: theme.inputColor, border: "0.1rem solid grey" }}
+                                    />
                                     {
                                         formik.touched.email && formik.errors.email &&
                                         <p className="text-center m-0">{formik.errors.email as string}</p>
@@ -103,7 +108,9 @@ const CompanyCards: FunctionComponent<CompanyCardsProps> = () => {
                                         name="location"
                                         value={formik.values.location}
                                         onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur} />
+                                        onBlur={formik.handleBlur}
+                                        style={{ background: theme.cardBackground, color: theme.inputColor, border: "0.1rem solid grey" }}
+                                    />
                                     {
                                         formik.touched.location && formik.errors.location &&
                                         <p className="text-center m-0">{formik.errors.location as string}</p>
@@ -117,7 +124,9 @@ const CompanyCards: FunctionComponent<CompanyCardsProps> = () => {
                                         name="phone"
                                         value={formik.values.phone}
                                         onChange={formik.handleChange}
-                                        onBlur={formik.handleBlur} />
+                                        onBlur={formik.handleBlur}
+                                        style={{ background: theme.cardBackground, color: theme.inputColor, border: "0.1rem solid grey" }}
+                                    />
                                     {
                                         formik.touched.phone && formik.errors.phone &&
                                         <p className="text-center m-0">{formik.errors.phone as string}</p>

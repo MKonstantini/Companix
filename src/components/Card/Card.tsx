@@ -44,7 +44,15 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
                             </div>
                             {/* img */}
                             <div className="col-6 mx-auto">
-                                <img src={userInfo.imageUrl} alt="profileImg" style={{ width: "100%" }} className="rounded-5 myBorder" />
+                                {
+                                    userInfo.imageUrl ?
+                                        <img src={userInfo.imageUrl} alt="profileImg" style={{ width: "100%" }} className="rounded-5 myBorder" />
+                                        : <div className="d-flex h-100 justify-content-center align-items-center">
+                                            <i className="fa-solid fa-circle-user rounded-5 m-0 p-0" style={{ fontSize: "11rem" }}></i>
+                                        </div>
+
+
+                                }
                             </div>
                         </div>
                         <div className="d-flex flex-column flex-sm-row justify-content-sm-between mt-2 flex-wrap ">

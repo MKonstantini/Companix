@@ -77,7 +77,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({ darkMode, setDarkMode }) => {
                                         {
                                             userInfo.imageUrl
                                                 ? <img src={userInfo.imageUrl} alt="" className="rounded-5 m-0 p-0 myBorder" style={{ width: "2.3rem" }} />
-                                                : <i className="fa-solid fa-circle-user rounded-5 m-0 p-0 myBorder" style={{ fontSize: "5rem" }}></i>
+                                                : <i className="fa-solid fa-circle-user rounded-5 m-0 p-0 myBorder" style={{ fontSize: "2rem" }}></i>
                                         }
                                     </li>
                                     {/* Dropdown Menu */}

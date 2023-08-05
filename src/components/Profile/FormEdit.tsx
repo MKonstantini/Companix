@@ -84,7 +84,7 @@ const FormEdit: FunctionComponent<FormEditProps> = () => {
             alertSuccess(`User details updated successfully!`)
             putUser(userInfo.id, newUser)
             setUserInfo(newUser)
-            navigate("/home")
+            navigate("/profile")
             resetForm()
         }
     })
