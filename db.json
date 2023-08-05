@@ -20,11 +20,11 @@
       "education": "Fullstack Development",
       "languages": "English Hebrew German",
       "savedCards": [
-        "102",
-        "103"
+        "106",
+        "107"
       ],
       "likedCards": [
-        "102"
+        "107"
       ],
       "companyCards": []
     },
@@ -48,12 +48,9 @@
       "education": "BA. Business",
       "languages": "Greek, English",
       "savedCards": [
-        "101",
-        "103"
+        "101"
       ],
-      "likedCards": [
-        "103"
-      ],
+      "likedCards": [],
       "companyCards": [
         {
           "id": 0,
@@ -87,9 +84,7 @@
         "101",
         "102"
       ],
-      "likedCards": [
-        "102"
-      ],
+      "likedCards": [],
       "companyCards": []
     },
     {

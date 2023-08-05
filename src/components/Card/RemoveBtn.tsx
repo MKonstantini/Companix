@@ -1,6 +1,6 @@
 import { FunctionComponent, useContext } from "react";
 import { UserContext } from "../../App";
-import { patchSaved } from "../../services/dbFunctions";
+import { patchLiked, patchSaved } from "../../services/dbFunctions";
 
 interface LikeBtnProps {
     cardId: string
@@ -16,10 +16,14 @@ const LikeBtn: FunctionComponent<LikeBtnProps> = ({ cardId }) => {
                     userInfo.savedCards.splice(
                         userInfo.savedCards.indexOf(cardId), 1
                     )
+                    userInfo.likedCards.splice(
+                        userInfo.savedCards.indexOf(cardId), 1
+                    )
 
                     sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
 
                     patchSaved(userInfo.id, userInfo.savedCards)
+                    patchLiked(userInfo.id, userInfo.likedCards)
 
                     setUserInfo(JSON.parse(sessionStorage.getItem("userInfo") as string))
                 }}>

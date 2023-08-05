@@ -36,9 +36,9 @@ const ExploreUsers: FunctionComponent<ExploreUsersProps> = () => {
                     displayedIds.length > 0 ?
                         <div className="row mt-3 ms-1">
                             {
-                                displayedIds.map((id: string) =>
-                                    <div key={id} className="col-xxl-6 d-flex flex-column align-items-xxl-start align-items-center mx-0">
-                                        <FeaturingCard userId={id} />
+                                displayedIds.map((cardId: string) =>
+                                    <div key={cardId} className="col-xxl-6 d-flex flex-column align-items-xxl-start align-items-center mx-0">
+                                        <FeaturingCard cardId={cardId} />
                                     </div>
                                 )
                             }
