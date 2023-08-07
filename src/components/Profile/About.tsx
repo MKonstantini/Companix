@@ -24,14 +24,15 @@ const About: FunctionComponent<AboutProps> = () => {
                     <p>Companix is a card-based networking webiste for your social and professional needs.</p><br />
                     <p>Featuring:</p>
                     <p>1.) Business Cards Section : Displays business cards, collected from other users. view, like and remove cards from your collection. Use the favorites and search tab to display specific cards.</p>
-                    <p>2.) Company Cards : For business accounts only. Create a card for your company. Edit and remove company cards as you see fit. Unlike your user card, company cards are unlimited in amount.</p>
+                    <p>2.) Company Cards (Business Cards Sub-Section) : For business accounts only. Create a card for your company. Edit and remove company cards as you see fit. Contrary to user cards - you can create an ulimited amount of company cards.</p>
+                    <p>3.) Explore Users Section : This section showcases users for you to discover. Expand your network by adding their cards to your business card collection.</p>
                     <p>3.) Profile Section : A profile section to view and change your information.</p>
                 </div>
 
                 {/* About Paragraph 2 */}
                 <div className="my-5 col-12 col-md-6">
                     <p>Development:</p>
-                    <p>Companix was created using React. Coded and compiled using HTML, CSS and TypeScript by Matan Konstantini. Created as a course project while studying fullstack developement at HackerU.</p>
+                    <p>Companix, a web-project by Matan Konstantini, was created using React and coded using HTML, CSS and TypeScript. This website was created as a course project while studying Fullstack Developement at HackerU.</p>
                 </div>
             </div>
 

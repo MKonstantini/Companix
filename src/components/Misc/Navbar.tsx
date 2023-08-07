@@ -61,7 +61,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({ darkMode, setDarkMode }) => {
                             {/* Rightside Btns */}
                             <div className="d-flex flex-column flex-md-row align-items-center">
                                 {/* Theme Changer */}
-                                <li className="me-2 nav-item" style={{ listStyle: "none", cursor: "pointer" }} onClick={() => {
+                                <div className="me-2 nav-item" style={{ listStyle: "none", cursor: "pointer" }} onClick={() => {
                                     setDarkMode(!darkMode)
                                 }}>
                                     <i className="fa-solid fa-circle-half-stroke me-2"></i>
@@ -70,25 +70,25 @@ const Navbar: FunctionComponent<NavbarProps> = ({ darkMode, setDarkMode }) => {
                                         : <span>Dark Mode</span>
                                     }
 
-                                </li>
+                                </div>
                                 {/* Profile Icon */}
-                                <li className="nav-item dropdown d-none d-md-block ms-3">
-                                    <li className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" nav-link dropdown-toggle>
+                                <div className="nav-item dropdown d-none d-md-block ms-3">
+                                    <div className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" nav-link dropdown-toggle>
                                         {
                                             userInfo.imageUrl
                                                 ? <img src={userInfo.imageUrl} alt="" className="rounded-5 m-0 p-0 myBorder" style={{ width: "2.3rem" }} />
                                                 : <i className="fa-solid fa-circle-user rounded-5 m-0 p-0 myBorder" style={{ fontSize: "2rem" }}></i>
                                         }
-                                    </li>
+                                    </div>
                                     {/* Dropdown Menu */}
                                     <ul className="dropdown-menu p-3 pb-4" style={{ left: "-6.5rem", top: "2.5rem", borderBlockColor: "grey", color: theme.color, background: theme.background }}>
                                         <Link to={"profile"} className="btn mb-2" style={{ marginLeft: "1.1rem", color: theme.color }}>My Profile</Link>
                                         <li className="btn btn-secondary" style={{ marginLeft: "1.7rem" }} onClick={() => {
                                             navigate("/")
-                                            setIsLoggedIn("false")
+                                            setIsLoggedIn(false)
                                         }}>Logout</li>
                                     </ul>
-                                </li>
+                                </div>
 
                                 {/* Logout For Collapsed */}
                                 <button className="btn btn-secondary d-inline-block me-2 mt-3 d-md-none" style={{ width: "4.8rem" }}>Logout</button>
