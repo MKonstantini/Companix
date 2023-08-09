@@ -17,7 +17,7 @@ export function useFetch(field:string) {
         axios.get(`${dbUrl}/${field}`)
         .then((res) => res.data)
         .then((data) => setUser(data))
-        .catch((err) => console.log(err))
+        .catch((error) => console.log(error))
     }, [])
     return (user)
 }

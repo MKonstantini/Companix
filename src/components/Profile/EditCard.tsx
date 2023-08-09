@@ -1,6 +1,4 @@
-import { FunctionComponent, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../App";
+import { FunctionComponent } from "react";
 import FormEdit from "./FormEdit";
 
 interface EditCardProps {

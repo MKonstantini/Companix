@@ -39,7 +39,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                     }
                     else alertError("Wrong email or password!")
                 })
-                .catch((err) => console.log(err))
+                .catch((error) => console.log(error))
         }
     })
     return (
@@ -113,7 +113,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                                 }
                                 else alertError("Wrong email or password!")
                             })
-                            .catch((err) => console.log(err))
+                            .catch((error) => console.log(error))
                     }}><p className="m-0" style={{ width: "5rem", height: "1.8rem" }}>Regular</p></button>
 
                     <button className="p-0" onClick={() => {
@@ -131,7 +131,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                                 }
                                 else alertError("Wrong email or password!")
                             })
-                            .catch((err) => console.log(err))
+                            .catch((error) => console.log(error))
                     }}><p className="m-0" style={{ width: "5rem", height: "1.8rem" }}>Business</p></button>
 
                     <button className="p-0" onClick={() => {
@@ -149,7 +149,7 @@ const FormLogin: FunctionComponent<FormLoginProps> = () => {
                                 }
                                 else alertError("Wrong email or password!")
                             })
-                            .catch((err) => console.log(err))
+                            .catch((error) => console.log(error))
                     }}><p className="m-0" style={{ width: "5rem", height: "1.8rem" }}>Admin</p></button>
                 </div>
             </form>

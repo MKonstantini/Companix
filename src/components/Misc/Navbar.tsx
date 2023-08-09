@@ -1,11 +1,3 @@
-// Navbar Layout:
-// Toggle Light/Dark Mode
-// Search Bar
-// if no-user: Home | About | Sign-Up | Login >
-// if account: Home | About | *Favorites*
-// if business account: Home | About | Favorites | *My Cards*
-// if admin account: Home | About | Favorites | My Cards | *CRM*
-
 import { FunctionComponent, useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { LoginContext, SiteTheme, UserContext } from "../../App";

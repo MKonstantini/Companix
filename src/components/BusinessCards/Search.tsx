@@ -20,6 +20,7 @@ const Search: FunctionComponent<SearchProps> = () => {
     getAll()
         .then((res) => res.data)
         .then((data) => allUsers = data)
+        .catch((error) => console.log(error))
 
     const resetInputField = (ref: any) => { if (ref != null) ref.value = "" }
 

@@ -1,6 +1,3 @@
-// profile Layout:
-// Welcome user x + Your Card + About this Website button
-
 import { FunctionComponent, useContext } from "react";
 import { UserContext } from "../../App";
 import Card from "../Card/Card";

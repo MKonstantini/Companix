@@ -1,7 +1,3 @@
-// Footer Layout:
-// Link to sections (user dependent)
-// Name of website and creator
-
 import { FunctionComponent, useContext } from "react";
 import { LoginContext, UserContext } from "../../App";
 import { Link } from "react-router-dom";

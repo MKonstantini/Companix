@@ -41,7 +41,7 @@ const CompanyCard: FunctionComponent<CompanyCardProps> = ({ cardNum }) => {
                     setUserInfo(data[0])
                     sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
                 })
-                .catch((err) => console.log(err))
+                .catch((error) => console.log(error))
         }
     })
 
@@ -162,7 +162,7 @@ const CompanyCard: FunctionComponent<CompanyCardProps> = ({ cardNum }) => {
                             setUserInfo(data[0])
                             sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
                         })
-                        .catch((err) => console.log(err))
+                        .catch((error) => console.log(error))
                 }}>
                     <i className="fa-solid fa-x me-2"></i>
                     Remove

@@ -46,7 +46,7 @@ const CompanyCards: FunctionComponent<CompanyCardsProps> = () => {
                     setUserInfo(data[0])
                     sessionStorage.setItem("userInfo", JSON.stringify(data[0]))
                 })
-                .catch((err) => console.log(err))
+                .catch((error) => console.log(error))
         }
     })
 
