@@ -4,7 +4,7 @@ Create, edit and share profile cards with fellow users.
 Account types:  
 * Regular: Create, edit and share personal cards.
 * Business: Includes feature to create business cards.
-* Admin: Includes feature to edit or/and remove all users data.
+* Admin: Includes feature to edit and remove all users data.
 
 ## Technologies
 * HTML5 / CSS / JavaScript
