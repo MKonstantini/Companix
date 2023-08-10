@@ -43,6 +43,17 @@ const Navbar: FunctionComponent<NavbarProps> = ({ darkMode, setDarkMode }) => {
                                     <NavLink className="nav-link" to="/exploreusers" style={{ color: theme.color }}>Explore Users</NavLink>
                                 </li>
 
+                                {
+                                    userInfo.accountType === "Admin" &&
+                                    <>
+                                        <li className="nav-item d-none d-md-block">_____</li>
+
+                                        <li className="nav-item navHover">
+                                            <NavLink className="nav-link active" aria-current="page" to="/crm" style={{ color: theme.color }}>CRM</NavLink>
+                                        </li>
+                                    </>
+                                }
+
                                 <li className="nav-item d-none d-md-block">_____</li>
 
                                 <li className="nav-item navHover">

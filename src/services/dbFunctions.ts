@@ -7,6 +7,17 @@ export function getAll() {
     return axios.get(dbUrl)
 }
 
+export function useFetchAll() {
+    let [users, setUsers] = useState<any>()
+    useEffect(() => {
+        axios.get(`${dbUrl}`)
+        .then((res) => res.data)
+        .then((data) => setUsers(data))
+        .catch((error) => console.log(error))
+    }, [])
+    return (users)
+}
+
 export function getUserByEmail(email: string, password: string) {
     return axios.get(`${dbUrl}?email=${email}&password=${password}`)
 }

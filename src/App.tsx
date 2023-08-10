@@ -15,6 +15,7 @@ import EditCard from './components/Profile/EditCard';
 import About from './components/Profile/About';
 import Footer from './components/Misc/Footer';
 import ExploreUsers from './components/BusinessCards/ExploreUsers';
+import CRM from './components/Misc/CRM';
 
 // login status and user info context
 export const LoginContext = createContext<any>(false)
@@ -73,6 +74,8 @@ function App() {
                 <Route path='/viewcard/:id' element={<ViewCard />} />
                 <Route path='/editcard/:type' element={<EditCard />} />
                 <Route path='/about' element={<About />} />
+
+                <Route path='/crm' element={<CRM />} />
 
                 <Route path='*' element={<NoPage />} />
               </Routes>
