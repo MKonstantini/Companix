@@ -2,8 +2,8 @@
 A social and corporate networking platform (non-commercial).  
 Create, edit and share profile cards with fellow users.  
 Account types:  
-* Regular: Create, edit and share personal cards.
-* Business: Includes feature to create business cards.
+* Regular: Create, edit and share profile cards.
+* Business: Includes feature to create company cards.
 * Admin: Includes feature to edit and remove all users data.
 
 ## Technologies
