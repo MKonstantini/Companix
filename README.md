@@ -23,7 +23,7 @@ Account types:
 ## Backend:
 Backend developed in .env environment with json-server.  
 Project's .env file is included in the project files.  
-Run backend localy using: ```json-server --watch db.json --port 8000```
+Run backend locally using: ```json-server --watch db.json --port 8000```
 
 ## Available Scripts
 ```npm start```   
