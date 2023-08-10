@@ -1,6 +1,5 @@
 # Companix
-Social and corporate networking platform (non-commercial).  
-Link: [https://mk-spotlight.netlify.app/](https://mk-spotlight.netlify.app/)
+A social and corporate networking platform (non-commercial).  
 
 ## Technologies
 * HTML5 / CSS / JavaScript
@@ -11,7 +10,7 @@ Link: [https://mk-spotlight.netlify.app/](https://mk-spotlight.netlify.app/)
 
 ## Installation
 1. Clone the repository:
-   ``` git clone mkonstantini.github.io/Spotlight/ ```
+   ``` git clone mkonstantini.github.io/Companix/ ```
 2. Navigate to the project directory using the ``` cd ``` terminal command.
 3. Install dependencies:
    ``` npm install ```
