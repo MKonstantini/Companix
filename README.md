@@ -1,7 +1,7 @@
 # Companix
-A social and corporate networking platform (non-commercial). 
-Create, edit and share profile cards with fellow users. 
-Account types:
+A social and corporate networking platform (non-commercial).  
+Create, edit and share profile cards with fellow users.  
+Account types:  
 * Regular: Create, edit and share personal cards.
 * Business: Includes feature to create business cards.
 * Admin: Includes feature to edit or/and remove all users data.
@@ -21,8 +21,8 @@ Account types:
    ``` npm install ```
 
 ## Backend:
-Backend developed in .env environment with json-server.
-Project's .env file is included in the project files.
+Backend developed in .env environment with json-server.  
+Project's .env file is included in the project files.  
 Run backend localy using: ```json-server --watch db.json --port 8000```
 
 ## Available Scripts
