@@ -29,7 +29,7 @@ const About: FunctionComponent<AboutProps> = () => {
                 {/* About Paragraph 2 */}
                 <div className="my-5 col-12 col-md-6">
                     <p>Development:</p>
-                    <p>Companix, a web-project by Matan Konstantini, was created using React and coded using HTML, CSS and TypeScript. This website was created as a course project while studying Fullstack Developement at HackerU.</p>
+                    <p>Companix, a web-project by Matan Konstantini, created using React and coded using HTML, CSS and TypeScript. Profile images and login cover picture from Unsplash. Icons from Font Awesome. Created as a course project while studying Fullstack Developement at HackerU.</p>
                 </div>
             </div>
 

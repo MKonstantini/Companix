@@ -21,7 +21,8 @@ const Footer: FunctionComponent<FooterProps> = () => {
                             <h6>Companix</h6>
                             <p className="mb-0">Created By Matan Konstantini.</p>
                             <p className="mb-0">Coded using React TypeScript.</p>
-                            <p className="mb-0">Deployed with Netlify.</p>
+                            <p className="mb-0">Images from Unsplash.</p>
+
                         </div>
                         <div className="mx-auto px-3" style={{ color: "grey" }}>
                             <h6>Sections</h6>
@@ -40,7 +41,6 @@ const Footer: FunctionComponent<FooterProps> = () => {
                                 <Link to={"/profile"} style={{ textDecoration: "none", color: "grey" }}>Profile</Link>
                             </div>
                         </div>
-
                     </div>
                 </footer>
             }
