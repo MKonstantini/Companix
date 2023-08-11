@@ -18,10 +18,6 @@ export function useFetchAll() {
     return (users)
 }
 
-export function getUserByEmail(email: string, password: string) {
-    return axios.get(`${dbUrl}?email=${email}&password=${password}`)
-}
-
 export function useFetch(field:string) {
     let [user, setUser] = useState<any>()
     useEffect(() => {
@@ -31,6 +27,10 @@ export function useFetch(field:string) {
         .catch((error) => console.log(error))
     }, [])
     return (user)
+}
+
+export function getUserByEmail(email: string, password: string) {
+    return axios.get(`${dbUrl}?email=${email}&password=${password}`)
 }
 
 export function addUser(user: User) {
@@ -55,6 +55,10 @@ export function patchSaved(userId: number, newValue: string ) {
 
 export function patchCompanyCard(userId: number, editedArray: object[]) {
     return axios.patch(`${dbUrl}/${userId}`, {"companyCards": editedArray})
+}
+
+export function deleteUser(userId: number) {
+    return axios.delete(`${dbUrl}/${userId}`)
 }
 
 

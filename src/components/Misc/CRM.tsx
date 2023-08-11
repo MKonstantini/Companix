@@ -1,14 +1,21 @@
-import { FunctionComponent } from "react";
-import { useFetchAll } from "../../services/dbFunctions";
+import { FunctionComponent, useEffect, useState } from "react";
+import { deleteUser, useFetchAll } from "../../services/dbFunctions";
 import User from "../../interfaces/User";
+import { useNavigate } from "react-router-dom";
 
 interface CRMProps {
 
 }
 
 const CRM: FunctionComponent<CRMProps> = () => {
-    const allUsers: User[] = useFetchAll()
-    console.log(allUsers)
+    let allUsers: User[] = useFetchAll()
+    const navigate = useNavigate()
+    const [actionDone, setActionDone] = useState(false)
+
+    useEffect(() => {
+
+    }, [actionDone])
+
 
     return (
         <>
@@ -19,7 +26,6 @@ const CRM: FunctionComponent<CRMProps> = () => {
                     <h1 className="display-6 m-0"><b>Manage</b></h1>
                     <h1 className="display-6"><b>All Users</b></h1>
                 </div>
-
             </div>
 
             <div className="container mt-5">
@@ -29,15 +35,44 @@ const CRM: FunctionComponent<CRMProps> = () => {
                 {
                     allUsers &&
                     <div className="row mt-3 ms-1">
-                        <ul>
-                            {
-                                allUsers.map((user: User) =>
-                                    <li key={user.id} className="">
-                                        {user.firstName}
-                                    </li>
-                                )
-                            }
-                        </ul>
+                        <table className="text-center">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Phone</th>
+                                    <th>Country</th>
+                                    <th>Account Type</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    allUsers.map((user: User) =>
+                                        <tr key={user.id} className="">
+                                            <td>{user.id}</td>
+                                            <td>{user.firstName}</td>
+                                            <td >{user.lastName}</td>
+                                            <td>{user.phone}</td>
+                                            <td>{user.country}</td>
+                                            <td>{user.accountType}</td>
+                                            <td>
+                                                <button onClick={() => navigate(`/editcard/${user.id}`)} style={{ color: "grey" }}>
+                                                    <i className="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button onClick={() => navigate(`/crm/confirmdelete/${user.id}`)} style={{ color: "grey" }}>
+                                                    <i className="fa-solid fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    )
+                                }
+                            </tbody>
+                        </table>
                     </div>
 
                 }

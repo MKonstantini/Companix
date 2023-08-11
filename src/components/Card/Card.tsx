@@ -78,7 +78,7 @@ const Card: FunctionComponent<CardProps> = ({ userId, cardType }) => {
                                     <i className="fa-solid fa-magnifying-glass me-2"></i>
                                     View
                                 </Link>
-                                <Link to={"/editcard/user"} className="btn btn-outline-secondary rounded-5">
+                                <Link to={`/editcard/${userInfo.id}`} className="btn btn-outline-secondary rounded-5">
                                     <i className="fa-solid fa-user-pen me-2"></i>
                                     Edit
                                 </Link>

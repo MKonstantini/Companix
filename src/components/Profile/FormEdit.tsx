@@ -5,36 +5,35 @@ import User from "../../interfaces/User";
 import { putUser } from "../../services/dbFunctions";
 import { alertSuccess } from "../../services/alertFunctions";
 import { useNavigate } from "react-router-dom";
-
 import { UserContext } from "../../App";
 
 interface FormEditProps {
-
+    user: User
 }
 
-const FormEdit: FunctionComponent<FormEditProps> = () => {
-    const [userInfo, setUserInfo] = useContext(UserContext)
+const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
     const navigate = useNavigate()
+    const loggedUser = useContext(UserContext)
 
     let formik = useFormik({
         initialValues: {
-            accountType: userInfo.accountType,
-            firstName: userInfo.firstName,
-            lastName: userInfo.lastName,
-            phone: userInfo.phone,
-            email: userInfo.email,
-            password: userInfo.password,
-            imageUrl: userInfo.imageUrl,
-            country: userInfo.country,
-            state: userInfo.state,
-            city: userInfo.city,
-            street: userInfo.street,
-            houseNumber: userInfo.houseNumber,
-            zip: userInfo.zip,
-            occupation: userInfo.occupation,
-            company: userInfo.company,
-            education: userInfo.education,
-            languages: userInfo.languages
+            accountType: user.accountType,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            phone: user.phone,
+            email: user.email,
+            password: user.password,
+            imageUrl: user.imageUrl,
+            country: user.country,
+            state: user.state,
+            city: user.city,
+            street: user.street,
+            houseNumber: user.houseNumber,
+            zip: user.zip,
+            occupation: user.occupation,
+            company: user.company,
+            education: user.education,
+            languages: user.languages
         },
         validationSchema: yup.object({
             accountType: yup.string().required("account type is a required field"),
@@ -57,7 +56,7 @@ const FormEdit: FunctionComponent<FormEditProps> = () => {
         }),
         onSubmit: (values, { resetForm }) => {
             const newUser: User = {
-                id: userInfo.id,
+                id: user.id,
                 accountType: values.accountType,
                 firstName: values.firstName,
                 lastName: values.lastName,
@@ -75,15 +74,18 @@ const FormEdit: FunctionComponent<FormEditProps> = () => {
                 company: values.company,
                 education: values.education,
                 languages: values.languages,
-                savedCards: userInfo.savedCards,
-                likedCards: userInfo.likedCards,
-                companyCards: userInfo.companyCards
+                savedCards: user.savedCards,
+                likedCards: user.likedCards,
+                companyCards: user.companyCards
             };
 
-            sessionStorage.setItem("userInfo", JSON.stringify(newUser))
+            if (String(user.id) === loggedUser.id) {
+                sessionStorage.setItem("userInfo", JSON.stringify(newUser))
+            }
+
             alertSuccess(`User details updated successfully!`)
-            putUser(userInfo.id, newUser)
-            setUserInfo(newUser)
+            putUser(user.id, newUser)
+            // setuser(newUser)
             navigate("/profile")
             resetForm()
         }

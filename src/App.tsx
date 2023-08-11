@@ -16,6 +16,7 @@ import About from './components/Profile/About';
 import Footer from './components/Misc/Footer';
 import ExploreUsers from './components/BusinessCards/ExploreUsers';
 import CRM from './components/Misc/CRM';
+import ConfirmDelete from './components/Misc/ConfirmDelete';
 
 // login status and user info context
 export const LoginContext = createContext<any>(false)
@@ -72,9 +73,10 @@ function App() {
 
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/viewcard/:id' element={<ViewCard />} />
-                <Route path='/editcard/:type' element={<EditCard />} />
+                <Route path='/editcard/:id' element={<EditCard />} />
                 <Route path='/about' element={<About />} />
 
+                <Route path='/crm/confirmdelete/:id' element={<ConfirmDelete />} />
                 <Route path='/crm' element={<CRM />} />
 
                 <Route path='*' element={<NoPage />} />
