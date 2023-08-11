@@ -1,8 +1,6 @@
 import { FunctionComponent, useContext } from "react";
 import { UserContext } from "../../App";
 import FeaturingCard from "../Card/FeaturingCard";
-import { useFetchAll } from "../../services/dbFunctions";
-import User from "../../interfaces/User";
 
 interface ExploreUsersProps {
 
