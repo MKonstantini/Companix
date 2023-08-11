@@ -1,6 +1,8 @@
 import { FunctionComponent, useContext } from "react";
 import { UserContext } from "../../App";
 import FeaturingCard from "../Card/FeaturingCard";
+import { useFetchAll } from "../../services/dbFunctions";
+import User from "../../interfaces/User";
 
 interface ExploreUsersProps {
 
@@ -9,6 +11,7 @@ interface ExploreUsersProps {
 const ExploreUsers: FunctionComponent<ExploreUsersProps> = () => {
     const [userInfo, setUserInfo] = useContext(UserContext)
 
+    // 'Featured' only displays non-registed users for privacy and cosmetic reasons
     const allIds = ["101", "102", "103", "104", "105", "106", "107"]
     const displayedIds: string[] = []
 

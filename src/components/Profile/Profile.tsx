@@ -16,8 +16,8 @@ const Profile: FunctionComponent<ProfileProps> = () => {
                 {/* Title */}
                 <div className="text-center text-sm-start">
                     <p className="m-0">- My Profile -</p>
-                    <h1 className="display-6 m-0"><b>Your Profile</b></h1>
-                    <h1 className="display-6"><b>{userInfo.firstName} {userInfo.lastName}</b></h1>
+                    <h1 className="display-6 m-0"><b>Welcome</b></h1>
+                    <h1 className="display-6"><b>To Your Profile</b></h1>
                 </div>
 
                 {/* Card */}

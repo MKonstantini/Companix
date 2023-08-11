@@ -5,7 +5,7 @@ import User from "../../interfaces/User";
 import { putUser } from "../../services/dbFunctions";
 import { alertSuccess } from "../../services/alertFunctions";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../App";
+import { SiteTheme, UserContext } from "../../App";
 
 interface FormEditProps {
     user: User
@@ -14,6 +14,7 @@ interface FormEditProps {
 const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
     const navigate = useNavigate()
     const loggedUser = useContext(UserContext)
+    const theme = useContext(SiteTheme)
 
     let formik = useFormik({
         initialValues: {
@@ -79,15 +80,17 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                 companyCards: user.companyCards
             };
 
-            if (String(user.id) === loggedUser.id) {
-                sessionStorage.setItem("userInfo", JSON.stringify(newUser))
-            }
-
             alertSuccess(`User details updated successfully!`)
             putUser(user.id, newUser)
-            // setuser(newUser)
-            navigate("/profile")
             resetForm()
+
+            if (user.id === loggedUser[0].id) {
+                sessionStorage.setItem("userInfo", JSON.stringify(newUser))
+                navigate("/profile")
+            }
+            else {
+                navigate("/crm")
+            }
         }
     })
 
@@ -106,6 +109,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.firstName}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                     {formik.touched.firstName && formik.errors.firstName &&
                         <small className="m-0 ms-2">{formik.errors.firstName as string}</small>
@@ -123,6 +127,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.lastName}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                     {formik.touched.lastName && formik.errors.lastName &&
                         <small className="m-0 ms-2">{formik.errors.lastName as string}</small>
@@ -139,6 +144,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.phone}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                     {formik.touched.phone && formik.errors.phone &&
                         <small className="m-0 ms-2">{formik.errors.phone as string}</small>
@@ -155,6 +161,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.email}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                     {formik.touched.email && formik.errors.email &&
                         <small className="m-0 ms-2">{formik.errors.email as string}</small>
@@ -171,6 +178,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.password}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                     {formik.touched.password && formik.errors.password &&
                         <small className="m-0 ms-2">{formik.errors.password as string}</small>
@@ -187,6 +195,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.imageUrl}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                 </div>
                 {/* Country */}
@@ -200,6 +209,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.country}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                     {formik.touched.country && formik.errors.country &&
                         <small className="m-0 ms-2">{formik.errors.country as string}</small>
@@ -216,6 +226,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.state}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                 </div>
                 {/* City */}
@@ -229,6 +240,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.city}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                     {formik.touched.city && formik.errors.city &&
                         <small className="m-0 ms-2">{formik.errors.city as string}</small>
@@ -245,6 +257,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.street}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                 </div>
                 {/* House Number */}
@@ -258,6 +271,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.houseNumber}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                 </div>
                 {/* Zip */}
@@ -271,6 +285,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.zip}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                 </div>
                 {/* Occupation */}
@@ -284,6 +299,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.occupation}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                     {formik.touched.occupation && formik.errors.occupation &&
                         <small className="m-0 ms-2">{formik.errors.occupation as string}</small>
@@ -300,6 +316,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.company}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                 </div>
                 {/* Education */}
@@ -313,6 +330,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.education}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                 </div>
                 {/* Languages */}
@@ -326,6 +344,7 @@ const FormEdit: FunctionComponent<FormEditProps> = ({ user }) => {
                         onChange={formik.handleChange}
                         value={formik.values.languages}
                         onBlur={formik.handleBlur}
+                        style={{ background: theme.background, color: theme.color, border: "grey 1px solid" }}
                     />
                 </div>
                 {/* Account Type */}

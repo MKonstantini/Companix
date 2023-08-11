@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { deleteUser, useFetch } from "../../services/dbFunctions";
+import { alertSuccess } from "../../services/alertFunctions";
 
 interface CRMProps {
 
@@ -39,6 +40,7 @@ const CRM: FunctionComponent<CRMProps> = () => {
                             <button className="btn btn-outline-secondary mx-4 px-4" onClick={() => navigate("/crm")}> <i className="fa-solid fa-x me-1"></i> No</button>
                             <button className="btn btn-outline-secondary mx-4 px-4" onClick={() => {
                                 deleteUser(userInfo.id)
+                                alertSuccess(`${userInfo.firstName} ${userInfo.lastName} has been deleted successfully!`)
                                 navigate("/crm")
                             }}> <i className="fa-solid fa-check me-1"></i> Yes</button>
 

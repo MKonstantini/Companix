@@ -1,5 +1,5 @@
 import { FunctionComponent, useEffect, useState } from "react";
-import { deleteUser, useFetchAll } from "../../services/dbFunctions";
+import { useFetchAll } from "../../services/dbFunctions";
 import User from "../../interfaces/User";
 import { useNavigate } from "react-router-dom";
 
@@ -10,11 +10,6 @@ interface CRMProps {
 const CRM: FunctionComponent<CRMProps> = () => {
     let allUsers: User[] = useFetchAll()
     const navigate = useNavigate()
-    const [actionDone, setActionDone] = useState(false)
-
-    useEffect(() => {
-
-    }, [actionDone])
 
 
     return (
@@ -51,7 +46,7 @@ const CRM: FunctionComponent<CRMProps> = () => {
                             <tbody>
                                 {
                                     allUsers.map((user: User) =>
-                                        <tr key={user.id} className="">
+                                        user.accountType !== "Admin" && <tr key={user.id} className="">
                                             <td>{user.id}</td>
                                             <td>{user.firstName}</td>
                                             <td >{user.lastName}</td>
