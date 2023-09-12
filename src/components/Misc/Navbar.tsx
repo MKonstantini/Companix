@@ -22,7 +22,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({ darkMode, setDarkMode }) => {
                 <div><nav className="navbar py-3 navbar-expand-md" style={{ color: theme.color, background: theme.background }}>
                     <div className="container-fluid text-center">
                         {/* Brand */}
-                        <Link className="navbar-brand fontGambetta" to="/home" style={{ color: theme.color }}>COMPANIX</Link>
+                        <Link className="navbar-brand fontGambetta" to="/businesscards" style={{ color: theme.color }}>COMPANIX</Link>
 
                         {/* Collapse Btn */}
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -19,9 +19,9 @@ const Footer: FunctionComponent<FooterProps> = () => {
                     <div className="d-flex">
                         <div className="mx-auto px-3" style={{ color: "grey" }}>
                             <h6>Companix</h6>
-                            <p className="mb-0">Created By Matan Konstantini.</p>
-                            <p className="mb-0">Coded using React TypeScript.</p>
-                            <p className="mb-0">Images from Unsplash.</p>
+                            <p className="mb-0">Created by Matan Konstantini.</p>
+                            <p className="mb-0">Images from Unsplash and Pixabay.</p>
+                            <p className="mb-0">Coded in React TypeScript.</p>
 
                         </div>
                         <div className="mx-auto px-3" style={{ color: "grey" }}>
@@ -35,6 +35,14 @@ const Footer: FunctionComponent<FooterProps> = () => {
                                     <Link to={"/businesscards"} onClick={() => {
                                         // sessionStorage.setItem()
                                     }} style={{ textDecoration: "none", color: "grey" }}>Company Cards</Link>
+                                </div>
+                            }
+                            {
+                                userInfo.accountType === "Admin" &&
+                                <div>
+                                    <Link to={"/crm"} onClick={() => {
+                                        // sessionStorage.setItem()
+                                    }} style={{ textDecoration: "none", color: "grey" }}>CRM</Link>
                                 </div>
                             }
                             <div>
